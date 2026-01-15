@@ -1,5 +1,5 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 function AuthCard({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -11,7 +11,7 @@ function AuthCard({ className, ...props }: React.ComponentProps<"div">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AuthCardHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -24,27 +24,33 @@ function AuthCardHeader({ className, ...props }: React.ComponentProps<"div">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AuthCardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("flex items-center gap-4 leading-none font-recoleta font-bold text-3xl", className)}
+      className={cn(
+        "flex items-center gap-4 leading-none font-recoleta font-bold text-3xl",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
-function AuthCardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function AuthCardDescription({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 function AuthCardAction({ className, ...props }: React.ComponentProps<"div">) {
@@ -57,17 +63,13 @@ function AuthCardAction({ className, ...props }: React.ComponentProps<"div">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AuthCardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
-      data-slot="card-content"
-      className={cn("", className)}
-      {...props}
-    />
-  )
+    <div data-slot="card-content" className={cn("", className)} {...props} />
+  );
 }
 
 function AuthCardFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -77,7 +79,7 @@ function AuthCardFooter({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex items-center [.border-t]:pt-6", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -88,4 +90,4 @@ export {
   AuthCardAction,
   AuthCardDescription,
   AuthCardContent,
-}
+};
