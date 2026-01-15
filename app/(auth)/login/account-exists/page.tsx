@@ -8,7 +8,7 @@ import bingoLogo from "@/public/images/bingo-logo.svg"
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-export default function RegisterEmailPage() {
+export default function AccountExits() {
   const router = useRouter();
 
   return (
@@ -18,39 +18,32 @@ export default function RegisterEmailPage() {
         <AuthCardTitle className="flex items-center gap-4 mb-3">
           <Link href="/register" className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs">
           <ChevronLeft className=""/></Link>
-          Sign up with email
+          Account exists
           </AuthCardTitle>
         <AuthCardDescription>
-          Enter your name and email to create your account.
+          We found an existing account under janedoe@example.com that isn’t linked to [Google/Apple]. 
+          To link your Google profile, please confirm your password below.
         </AuthCardDescription>
       </AuthCardHeader>
 
       <AuthCardContent className="space-y-4">
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Name</label>
-          <AuthInput placeholder="Enter your full name" />
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Email</label>
-          <AuthInput type="email" placeholder="Enter your email address" />
+        <div className="space-y-4">
+          <AuthInput type="email" placeholder="janedoe@example.com" disabled/>
+          <AuthInput type="Password" placeholder="Password" />
         </div>
       </AuthCardContent>
 
       <AuthCardFooter className="flex flex-col gap-3">
         <Button
           type="button"
-          className="w-full bg-link text-base"
-          onClick={() => router.push("/register/verify")}
+          className="w-full bg-link text-base h-10"
+          onClick={() => router.push("/")}
         >
-          Continue
+          Link account & sign in
         </Button>
 
         <div className="text-muted-foreground text-sm">
-          By signing up, you agree to the{" "}  
-          <Link href="#" className="text-xs text-link underline underline-offset-auto">Terms of Service</Link> 
-          {" "}and{" "}
-          <Link href="#" className="text-xs text-link underline underline-offset-auto">Privacy Policy</Link>
+          <Link href="/login/forgot-password" className="text-xs underline underline-offset-auto">Forgot password?</Link>
         </div>
       </AuthCardFooter>
     </AuthCard>

@@ -8,15 +8,16 @@ import {
   AuthCardTitle,
 } from "@/components/authCard/authCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import Image from "next/image"
 import bingoLogo from "@/public/images/bingo-logo.svg"
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Lock } from "lucide-react";
 
-export default function VerifyPage() {
+
+export default function VerifyLoginPage() {
   const router = useRouter();
 
   const [seconds, setSeconds] = useState(26);
@@ -42,42 +43,37 @@ export default function VerifyPage() {
           Check your email
         </AuthCardTitle>
         <AuthCardDescription>
-          We've sent a 6-digit verification code to <span className="font-semibold">example@example.com</span>
+          For a fast, secure login—no password required.
         </AuthCardDescription>
       </AuthCardHeader>
 
       <AuthCardContent className="space-y-2">
-        <label className="text-sm font-medium">Code</label>
-        <div className="flex gap-2">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Input
-              key={i}
-              maxLength={1}
-              className="h-9 w-9 text-center text-lg"
-            />
-          ))}
+        <div className="border border-input rounded-2xl p-4 flex flex-col justify-center items-center">
+            <p className="bg-blue-50 mb-3 w-11 h-11 rounded-xl border border-input flex items-center justify-center"><Send/></p>
+            <p className="text-sm flex flex-col items-center gap-1 mb-1">
+                <span>Didn’t get it? Check your spam folder</span>
+                {seconds > 0 ? (
+                  <span>Resend in {seconds} seconds</span>
+                ) : (
+                <button
+                    type="button"
+                    className="text-link underline font-medium"
+                    onClick={() => {
+                        // UI only for now.
+                        setSeconds(26); // restart on resend click
+                    }}
+                    >
+                    Resend link
+                </button>
+                )}
+            </p>
         </div>
-
-        <p className="text-sm text-muted-foreground">
-          {seconds > 0 ? (
-                <span>Didn’t get the code? Resend in {seconds} seconds</span>
-            ) : (
-              <button
-                type="button"
-                className="text-link underline font-medium"
-                onClick={() => {
-                    // UI only for now.
-                    setSeconds(26); // restart on resend click
-                }}
-                >
-                Resend code
-              </button>
-            )}
-        </p>
       </AuthCardContent>
 
       <AuthCardFooter>
-        <Button className="w-full bg-link text-base" onClick={() => router.push("/register/success")}>Continue</Button>
+        <Button variant="ghost" className="w-full" onClick={() => router.push("/login/login-password")}>
+            <Lock />Use a password instead
+        </Button>
       </AuthCardFooter>
     </AuthCard>
   );
