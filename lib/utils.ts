@@ -36,4 +36,8 @@ export const SITE_URLS = {
     VERIFY: "/register/verify",
     SUCCESS: "/register/success",
   },
+
+  // For templates page
+  TEMPLATE: "/template",
+
 } as const;

@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { AuthInput } from "@/components/authInput/authInput";
 import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 export default function LoginPage() {
   return (
@@ -43,6 +44,8 @@ export default function LoginPage() {
         </div>
 
         {/* <FieldSeparator>OR</FieldSeparator> */}
+
+        {/* <Separator>OR</Separator> */}
         <div className="relative flex items-center justify-center my-3">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-border"></div>

@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
+import { Inter } from "next/font/google";
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Bingo",
@@ -8,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="antialiased">
         {children}
       </body>

@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -50,6 +50,13 @@
   --color-link: var(--link);
   --color-card-title: var(--card-title);
   --font-recoleta: var(--font-recoleta);
+
+  --color-primary-90: var(--primary-90);
+  --color-primary-500: var(--primary-500);
+  --color-title: var(--title);
+  --color-text: var(--text);
+  --color-gray: var(--text-gray);
+  --color-text-gray-500: var(--text-gray-500);
 }
 
 :root {
@@ -89,6 +96,12 @@
   /* Custom Variables */
   --link: #4F46E5;
   --card-title: #262626;
+  --primary-90: #5048e5e6;
+  --primary-500: #6366F1;
+  --title: #111827;
+  --text: #1F2937;
+  --text-gray: #4B5563;
+  --text-gray-500: #6B7280;
 }
 
 .dark {
@@ -131,5 +144,13 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  @media (min-width: 1280px) {
+    .grid-footer-column {
+      grid-template-columns: 400px minmax(20px, 608px);
+    }
   }
 }

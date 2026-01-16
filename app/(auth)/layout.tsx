@@ -53,7 +53,7 @@ export default function RootLayout({
     <main className={`${recoleta.variable} flex h-dvh bg-background `}>
       <div className="flex flex-1 m-6 gap-6">
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
-          <div className="w-full max-w-[360px] mx-auto">{children}</div>
+          <div className="w-full max-w-90 mx-auto">{children}</div>
         </div>
         <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14px">
           <Image
