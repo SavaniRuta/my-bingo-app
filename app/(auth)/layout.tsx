@@ -50,16 +50,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <main className="flex h-dvh bg-background">
+    <main className={`${recoleta.variable} flex h-dvh bg-background `}>
       <div className="flex flex-1 m-6 gap-6">
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
           <div className="w-full max-w-[360px] mx-auto">{children}</div>
         </div>
-        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-4xl">
+        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14px">
           <Image
             src={cardsImage}
             alt="Image"
-            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale rounded-4xl"
+            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale rounded-14px"
           />
         </div>
       </div>

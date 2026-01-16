@@ -1,4 +1,3 @@
-"use client";
 import {
   AuthCard,
   AuthCardContent,
@@ -9,25 +8,25 @@ import {
 } from "@/components/authCard/authCard";
 import { Button } from "@/components/ui/button";
 import { AuthInput } from "@/components/authInput/authInput";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import chevronLeft from "@/public/images/chevron-left.svg";
+import { SITE_URLS } from "@/lib/utils";
 
 export default function RegisterEmailPage() {
-  const router = useRouter();
-
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-5" />
-        <AuthCardTitle className="flex items-center gap-4 mb-3">
+        <Link href={SITE_URLS.HOME}>
+          <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-5" />
+        </Link>
+        <AuthCardTitle className="flex items-center gap-4">
           <Link
-            href="/register"
+            href={SITE_URLS.AUTH.REGISTER}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <ChevronLeft className="" />
+            <Image src={chevronLeft} alt="Back Link Icon" />
           </Link>
           Sign up with email
         </AuthCardTitle>
@@ -37,24 +36,21 @@ export default function RegisterEmailPage() {
       </AuthCardHeader>
 
       <AuthCardContent className="space-y-4">
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Name</label>
-          <AuthInput placeholder="Enter your full name" />
-        </div>
+        <label className="text-sm font-medium mb-2 block ">Name</label>
+        <AuthInput placeholder="Enter your full name" />
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Email</label>
-          <AuthInput type="email" placeholder="Enter your email address" />
-        </div>
+        <label className="text-sm font-medium mb-2 block">Email</label>
+        <AuthInput type="email" placeholder="Enter your email address" />
       </AuthCardContent>
 
       <AuthCardFooter className="flex flex-col gap-3">
-        <Button
-          type="button"
-          className="w-full bg-link text-base"
-          onClick={() => router.push("/register/verify")}
-        >
-          Continue
+        <Button type="button" className="w-full bg-link text-base h-10">
+          <Link
+            href={SITE_URLS.REGISTER.VERIFY}
+            className="flex items-center gap-2 justify-center w-full"
+          >
+            Continue
+          </Link>
         </Button>
 
         <div className="text-muted-foreground text-sm">

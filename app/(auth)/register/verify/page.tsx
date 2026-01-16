@@ -11,14 +11,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
+import chevronLeft from "@/public/images/chevron-left.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { SITE_URLS } from "@/lib/utils";
 
 export default function VerifyPage() {
-  const router = useRouter();
-
   const [seconds, setSeconds] = useState(26);
 
   useEffect(() => {
@@ -34,13 +32,15 @@ export default function VerifyPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-8" />
-        <AuthCardTitle className="flex items-center gap-4 mb-3">
+        <Link href={SITE_URLS.HOME}>
+          <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-5" />
+        </Link>
+        <AuthCardTitle className="flex items-center gap-4">
           <Link
-            href="/register/email"
+            href={SITE_URLS.REGISTER.EMAIL}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <ChevronLeft className="" />
+            <Image src={chevronLeft} alt="Back Link Icon" />
           </Link>
           Check your email
         </AuthCardTitle>
@@ -51,7 +51,7 @@ export default function VerifyPage() {
       </AuthCardHeader>
 
       <AuthCardContent className="space-y-2">
-        <label className="text-sm font-medium">Code</label>
+        <label className="text-sm font-medium block mb-2">Code</label>
         <div className="flex gap-2">
           {Array.from({ length: 6 }).map((_, i) => (
             <Input
@@ -81,11 +81,13 @@ export default function VerifyPage() {
       </AuthCardContent>
 
       <AuthCardFooter>
-        <Button
-          className="w-full bg-link text-base"
-          onClick={() => router.push("/register/success")}
-        >
-          Continue
+        <Button className="w-full bg-link text-base h-10">
+          <Link
+            href={SITE_URLS.REGISTER.SUCCESS}
+            className="flex items-center gap-2 justify-center w-full"
+          >
+            Continue
+          </Link>
         </Button>
       </AuthCardFooter>
     </AuthCard>

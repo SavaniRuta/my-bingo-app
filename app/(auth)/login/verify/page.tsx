@@ -10,15 +10,14 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
+import chevronLeft from "@/public/images/chevron-left.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft, Send } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Send } from "lucide-react";
 import { Lock } from "lucide-react";
+import { SITE_URLS } from "@/lib/utils";
 
 export default function VerifyLoginPage() {
-  const router = useRouter();
-
   const [seconds, setSeconds] = useState(26);
 
   useEffect(() => {
@@ -34,13 +33,15 @@ export default function VerifyLoginPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-8" />
-        <AuthCardTitle className="flex items-center gap-4 mb-3">
+        <Link href={SITE_URLS.HOME}>
+          <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-5" />
+        </Link>
+        <AuthCardTitle className="flex items-center gap-4">
           <Link
-            href="/register/email"
+            href={SITE_URLS.LOGIN.FORGOT_PASSWORD}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <ChevronLeft className="" />
+            <Image src={chevronLeft} alt="Back Link Icon" />
           </Link>
           Check your email
         </AuthCardTitle>
@@ -52,10 +53,12 @@ export default function VerifyLoginPage() {
       <AuthCardContent className="space-y-2">
         <div className="border border-input rounded-2xl p-4 flex flex-col justify-center items-center">
           <p className="bg-blue-50 mb-3 w-11 h-11 rounded-xl border border-input flex items-center justify-center">
-            <Send />
+            <Send className="text-link" />
           </p>
           <p className="text-sm flex flex-col items-center gap-1 mb-1">
-            <span>Didn’t get it? Check your spam folder</span>
+            <span className="text-card-title font-medium">
+              Didn’t get it? Check your spam folder
+            </span>
             {seconds > 0 ? (
               <span>Resend in {seconds} seconds</span>
             ) : (
@@ -75,13 +78,13 @@ export default function VerifyLoginPage() {
       </AuthCardContent>
 
       <AuthCardFooter>
-        <Button
-          variant="ghost"
-          className="w-full"
-          onClick={() => router.push("/login/login-password")}
-        >
-          <Lock />
-          Use a password instead
+        <Button type="button" variant="ghost" className="w-full">
+          <Link
+            href={SITE_URLS.LOGIN.LOGIN_PASSWORD}
+            className="flex items-center gap-2 justify-center w-full"
+          >
+            <Lock /> Use a password instead
+          </Link>
         </Button>
       </AuthCardFooter>
     </AuthCard>
