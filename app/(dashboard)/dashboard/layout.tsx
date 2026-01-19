@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
 import { Header } from "@/components/dashboard/header/header";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -13,9 +11,9 @@ export default function DashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="bg-light-gray h-dvh">
+    <div className="bg-light-gray h-dvh flex flex-col">
       <Header />
-      {children}
+      <div className="flex-auto overflow-y-auto">{children}</div>
     </div>
   );
 }

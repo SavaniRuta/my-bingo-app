@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarProvider } from "@/components/ui/sidebar";
-import { Blend, User, CreditCard, SwatchBook } from "lucide-react"
-
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarProvider,
+} from "@/components/ui/sidebar";
+import { Blend, User, CreditCard, SwatchBook } from "lucide-react";
 
 // Menu items.
 const items = [
@@ -27,7 +36,7 @@ const items = [
     url: "#",
     icon: SwatchBook,
   },
-]
+];
 
 export const metadata: Metadata = {
   title: "Settings",
@@ -42,16 +51,13 @@ export default function SettingsLayout({
       <ScreenHeader
         title="Settings"
         description="Manage your account settings."
-      >
-      </ScreenHeader>
+      ></ScreenHeader>
 
       <div className="py-8">
         <div className="dashboard-container">
-
-          <SidebarProvider>
-            <div className="flex gap-8">
-
-              <Sidebar className="relative">
+          <SidebarProvider className="min-h-auto">
+            <div className="flex gap-12">
+              <Sidebar className="relative border-none h-auto">
                 <SidebarContent>
                   <SidebarGroup>
                     <SidebarGroupContent>
@@ -72,13 +78,9 @@ export default function SettingsLayout({
                 </SidebarContent>
               </Sidebar>
 
-              <div className="w-full lg:max-w-150">
-                {children}
-              </div>
-
+              <div className="w-full lg:max-w-150">{children}</div>
             </div>
           </SidebarProvider>
-
         </div>
       </div>
     </div>

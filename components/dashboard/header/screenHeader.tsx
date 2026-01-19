@@ -20,7 +20,7 @@ export function ScreenHeader({
           <p>Breadcrubs</p>
         </div> */}
 
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex items-end justify-between gap-4 flex-wrap">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-3">
               <h1 className="font-recoleta text-3xl font-bold">
