@@ -87,4 +87,52 @@ export const DUMMY_GAME_CARDS = [
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
+  {
+    id: 'c6',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c7',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c8',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c9',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c10',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c11',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c12',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
+  {
+    id: 'c13',
+    image: elementoryIcebrakerCard,
+    title: 'Lets’ play bingo',
+    status: "Expiring"
+  },
 ];
