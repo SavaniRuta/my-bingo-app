@@ -13,10 +13,9 @@ import googleIcon from "@/public/images/google-icon.svg";
 import appleIcon from "@/public/images/apple-icon.svg";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
-import { AuthInput } from "@/components/authInput/authInput";
+import { Input } from "@/components/ui/input";
 import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/lib/utils";
-import { Separator } from "@/components/ui/separator";
 
 export default function LoginPage() {
   return (
@@ -68,7 +67,7 @@ export default function LoginPage() {
             </a>
           </div>
 
-          <AuthInput
+          <Input
             id="email"
             type="email"
             required

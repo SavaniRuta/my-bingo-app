@@ -7,12 +7,12 @@ import {
   AuthCardTitle,
 } from "@/components/authCard/authCard";
 import { Button } from "@/components/ui/button";
-import { AuthInput } from "@/components/authInput/authInput";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
 import Link from "next/link";
-import chevronLeft from "@/public/images/chevron-left.svg";
 import { SITE_URLS } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 export default function RegisterEmailPage() {
   return (
@@ -26,7 +26,7 @@ export default function RegisterEmailPage() {
             href={SITE_URLS.AUTH.REGISTER}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <Image src={chevronLeft} alt="Back Link Icon" />
+            <ChevronLeft width={16} height={16}/>
           </Link>
           Sign up with email
         </AuthCardTitle>
@@ -37,10 +37,10 @@ export default function RegisterEmailPage() {
 
       <AuthCardContent className="space-y-4">
         <label className="text-sm font-medium mb-2 block ">Name</label>
-        <AuthInput placeholder="Enter your full name" />
+        <Input placeholder="Enter your full name" />
 
         <label className="text-sm font-medium mb-2 block">Email</label>
-        <AuthInput type="email" placeholder="Enter your email address" />
+        <Input type="email" placeholder="Enter your email address" />
       </AuthCardContent>
 
       <AuthCardFooter className="flex flex-col gap-3">

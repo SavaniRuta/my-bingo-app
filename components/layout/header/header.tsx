@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
-import { AppButton } from "@/components/appButton/appButton";
+import { Button } from "@/components/ui/button";
 import bingoLogo from "@/public/images/bingo-logo.svg";
 import avatarImg from "@/public/images/avatar-img.svg";
 import searchIcon from "@/public/images/search-icon.svg";
@@ -91,9 +91,9 @@ export function Header({ variant }: HeaderProps) {
               </div>
 
               <div className="hidden lg:block">
-                <AppButton type="button" variant="primary">
+                <Button type="button">
                   Create Card
-                </AppButton>
+                </Button>
               </div>
 
               <div className="block lg:hidden">

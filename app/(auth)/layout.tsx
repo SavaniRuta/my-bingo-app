@@ -1,45 +1,7 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
-import localFont from "next/font/local";
 import Image from "next/image";
 import cardsImage from "../../public/images/cards.png";
-
-const recoleta = localFont({
-  src: [
-    {
-      path: "../../public/fonts/recoleta-light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/recoleta-regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/recoleta-medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/recoleta-semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/recoleta-bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/recoleta-black.woff2",
-      weight: "900",
-      style: "normal",
-    },
-  ],
-  variable: "--font-recoleta",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Bingo forms",
@@ -50,7 +12,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <main className={`${recoleta.variable} flex h-dvh bg-background `}>
+    <main className={`flex h-dvh bg-background `}>
       <div className="flex flex-1 m-6 gap-6">
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
           <div className="w-full max-w-90 mx-auto">{children}</div>

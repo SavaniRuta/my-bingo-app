@@ -11,10 +11,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
-import chevronLeft from "@/public/images/chevron-left.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SITE_URLS } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 export default function VerifyPage() {
   const [seconds, setSeconds] = useState(26);
@@ -40,7 +40,7 @@ export default function VerifyPage() {
             href={SITE_URLS.REGISTER.EMAIL}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <Image src={chevronLeft} alt="Back Link Icon" />
+            <ChevronLeft width={16} height={16}/>
           </Link>
           Check your email
         </AuthCardTitle>

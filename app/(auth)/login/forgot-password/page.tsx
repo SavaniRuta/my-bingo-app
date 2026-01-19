@@ -7,12 +7,12 @@ import {
   AuthCardTitle,
 } from "@/components/authCard/authCard";
 import { Button } from "@/components/ui/button";
-import { AuthInput } from "@/components/authInput/authInput";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
-import chevronLeft from "@/public/images/chevron-left.svg";
 import Link from "next/link";
 import { SITE_URLS } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 export default function ForgotPassword() {
   return (
@@ -26,7 +26,7 @@ export default function ForgotPassword() {
             href={SITE_URLS.LOGIN.LOGIN_PASSWORD}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <Image src={chevronLeft} alt="Back Link Icon" />
+            <ChevronLeft width={16} height={16}/>
           </Link>
           Reset your password
         </AuthCardTitle>
@@ -36,7 +36,7 @@ export default function ForgotPassword() {
       </AuthCardHeader>
 
       <AuthCardContent>
-        <AuthInput type="email" placeholder="sam@bingocardcreator.com" />
+        <Input type="email" placeholder="sam@bingocardcreator.com" />
       </AuthCardContent>
 
       <AuthCardFooter className="flex flex-col gap-3">

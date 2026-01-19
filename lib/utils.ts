@@ -40,4 +40,7 @@ export const SITE_URLS = {
   // For templates page
   TEMPLATE: "/template",
 
+  // For Dashboard page
+  DASHBOARD: "/dashbaord",
+
 } as const;

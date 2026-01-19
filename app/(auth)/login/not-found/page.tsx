@@ -8,9 +8,9 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
-import chevronLeft from "@/public/images/chevron-left.svg";
 import Link from "next/link";
 import { SITE_URLS } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 export default function AccountNotFound() {
   return (
@@ -24,7 +24,7 @@ export default function AccountNotFound() {
             href={SITE_URLS.AUTH.LOGIN}
             className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
           >
-            <Image src={chevronLeft} alt="Back Link Icon" />
+            <ChevronLeft width={16} height={16}/>
           </Link>
           Account not found
         </AuthCardTitle>
