@@ -17,7 +17,7 @@ export default function RootLayout({
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
           <div className="w-full max-w-90 mx-auto">{children}</div>
         </div>
-        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14px">
+        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14px border border-primary-border">
           <Image
             src={cardsImage}
             alt="Image"
