@@ -28,7 +28,7 @@ export default function Changlog() {
       <div className="py-8">
         <div className="dashboard-container">
           <SidebarProvider className="min-h-auto">
-            <div className="grid grid-cols-[170px_1fr] gap-12 w-full lg:max-w-204.5">
+            <div className="grid lg:grid-cols-[170px_1fr] gap-12 w-full lg:max-w-204.5">
               <Sidebar className="relative border-none h-auto max-w-42.5 w-full">
                 <SidebarContent>
                   <SidebarGroup className="p-0">
