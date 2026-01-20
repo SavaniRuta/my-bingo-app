@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { BellDotIcon, Gauge } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import Link from "next/link";
+import { SITE_URLS } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
@@ -28,10 +31,22 @@ export function Header() {
 
           <div className="flex items-center gap-x-2 lg:gap-x-3 lg:ml-auto">
             <div className="hidden lg:flex items-center">
-              <Button variant="ghost" className="text-muted-foreground">
+              <Link
+                href={SITE_URLS.DASHBOARD.DASHBOARD}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "text-muted-foreground",
+                )}
+              >
                 Dashboard
-              </Button>
-              <Button variant="ghost">My cards</Button>
+              </Link>
+
+              <Link
+                href={SITE_URLS.DASHBOARD.MY_CARDS}
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+              >
+                My cards
+              </Link>
             </div>
 
             <div className="shrink-0 bg-border w-px hidden h-6 lg:block"></div>

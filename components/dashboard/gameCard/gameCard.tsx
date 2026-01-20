@@ -16,9 +16,9 @@ export function GameCard({ image, title, status }: PlayCardProps) {
       {/* Card */}
       <Link
         href="#"
-        className="flex gap-4 p-3 border border-border rounded-xl bg-card shadow-sm transition-all"
+        className="flex gap-4 p-3 border border-border rounded-xl bg-card shadow-sm transition-all flex-wrap min-w-65"
       >
-        <div className="w-26 shrink-0">
+        <div className="lg:w-26 lg:shrink-0">
           <Image
             src={image}
             alt={title}
@@ -28,8 +28,21 @@ export function GameCard({ image, title, status }: PlayCardProps) {
         </div>
         <div className="flex flex-col flex-1 gap-2">
           <div className="space-y-1.5 mb-3">
-            <div className="flex justify-between">
-              <Badge variant="secondary">{status}</Badge>
+            <div className="flex justify-between items-center">
+              <div>
+                <Badge
+                  variant={status === "Active" ? "secondary" : "outline"}
+                  className={
+                    status === "Expiring"
+                      ? "bg-warning border border-warning-border text-warning-foreground"
+                      : status === "Paused"
+                        ? "bg-accent border border-light text-accent-foreground"
+                        : undefined
+                  }
+                >
+                  {status}
+                </Badge>
+              </div>
               <Button variant="outline" size="icon-sm">
                 <EllipsisVertical />
               </Button>
@@ -42,7 +55,7 @@ export function GameCard({ image, title, status }: PlayCardProps) {
             </div>
           </div>
 
-          <Button variant="outline">
+          <Button variant="outline" size="sm">
             <Play />
             Join
           </Button>

@@ -12,7 +12,7 @@ import Image from "next/image";
 import bingoLogo from "@/public/images/bingo-logo.svg";
 import Link from "next/link";
 import { SITE_URLS } from "@/lib/utils";
-import { AuthPasswordInput } from "@/components/authPasswordInput/authPasswordInput";
+import { AppInput } from "@/components/appInput/appInput";
 import { ChevronLeft } from "lucide-react";
 
 export default function SingInWithPassword() {
@@ -43,7 +43,7 @@ export default function SingInWithPassword() {
             placeholder="sam@bingocardcreator.com"
             disabled
           />
-          <AuthPasswordInput placeholder="Password" />
+          <AppInput placeholder="Password" variant="password"/>
         </div>
       </AuthCardContent>
 

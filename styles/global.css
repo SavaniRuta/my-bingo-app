@@ -246,4 +246,8 @@
   .bg-light-gray{
     background-color: #f3f4f64d;
   }
+  .remove-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

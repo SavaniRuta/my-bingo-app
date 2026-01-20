@@ -41,6 +41,17 @@ export const SITE_URLS = {
   TEMPLATE: "/template",
 
   // For Dashboard page
-  DASHBOARD: "/dashbaord",
+  // DASHBOARD: "/dashbaord",
+  DASHBOARD: {
+    DASHBOARD: "/dashboard",
+    MY_CARDS: "/dashboard/my-cards",
+  }
 
 } as const;
+
+
+export function formatSlugToTitle(slug: string) {
+  return slug
+    .replace(/-/g, " ")            // replace hyphens with spaces
+    .replace(/\b\w/g, (c) => c.toUpperCase()); // capitalize words
+}

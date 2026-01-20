@@ -2,11 +2,11 @@ import { GameCard } from "@/components/dashboard/gameCard/gameCard";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import PlayCard from "@/components/dashboard/playCard/playCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ChartLine } from "lucide-react";
 import Link from "next/link";
 
 import { DUMMY_CARDS, DUMMY_GAME_CARDS } from "@/lib/cards";
+import { AppInput } from "@/components/appInput/appInput";
 
 export default function Dashboard() {
   const itemCount = 4;
@@ -26,7 +26,7 @@ export default function Dashboard() {
         description="An overview of your recent account activity."
         actions={
           <div className="flex gap-2">
-            <Input placeholder="Search" />
+            <AppInput placeholder="Search" variant="search"/>
             <Button variant="outline" className="h-10">
               <ChartLine />
             </Button>

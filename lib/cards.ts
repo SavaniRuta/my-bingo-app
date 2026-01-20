@@ -1,11 +1,13 @@
-import elementoryIcebrakerCard from '@/public/images/elementory-ice-braker-card.jpg';
+import peopleWatchingCard from '@/public/images/people-watching-card.png';
 import findSomeoneCard from '@/public/images/find-someone-card.png';
+import thisOrThat from '@/public/images/this-or-that.png';
+
 
 // My cards data
 export const DUMMY_CARDS = [
   {
     id: 'c1',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
   },
   {
@@ -15,7 +17,7 @@ export const DUMMY_CARDS = [
   },
   {
     id: 'c3',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo 3',
   },
   {
@@ -25,7 +27,7 @@ export const DUMMY_CARDS = [
   },
   {
     id: 'c5',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo 5',
   },
   {
@@ -35,7 +37,7 @@ export const DUMMY_CARDS = [
   },
   {
     id: 'c7',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo 7',
   },
   {
@@ -45,7 +47,7 @@ export const DUMMY_CARDS = [
   },
   {
     id: 'c9',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo 9',
   },
   {
@@ -59,80 +61,134 @@ export const DUMMY_CARDS = [
 export const DUMMY_GAME_CARDS = [
   {
     id: 'c1',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Active"
   },
   {
     id: 'c2',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
   {
     id: 'c3',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Paused"
   },
   {
     id: 'c4',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Active"
   },
   {
     id: 'c5',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
   {
     id: 'c6',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
-    status: "Expiring"
+    status: "Paused"
   },
   {
     id: 'c7',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
   {
     id: 'c8',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
-    status: "Expiring"
+    status: "Active"
   },
   {
     id: 'c9',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
   {
     id: 'c10',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
     status: "Expiring"
   },
   {
     id: 'c11',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
-    status: "Expiring"
+    status: "Active"
   },
   {
     id: 'c12',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
-    status: "Expiring"
+    status: "Paused"
   },
   {
     id: 'c13',
-    image: elementoryIcebrakerCard,
+    image: peopleWatchingCard,
     title: 'Lets’ play bingo',
-    status: "Expiring"
+    status: "Active"
+  },
+];
+
+// New templates cards data
+export const DUMMY_TEMPLATE_CARDS = [
+  {
+    id: 'c1',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c2',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c3',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c4',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c5',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c6',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c7',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c8',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c9',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
+  },
+  {
+    id: 'c10',
+    image: thisOrThat,
+    title: 'Lets’ play bingo',
   },
 ];
