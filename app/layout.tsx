@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -9,6 +9,11 @@ export const inter = Inter({
   display: "swap",
 });
 
+export const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 const recoleta = localFont({
   src: [
@@ -55,7 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${recoleta.variable} antialiased`}>
+    <html lang="en" className={`${geist.variable} ${recoleta.variable} antialiased`}>
       <body className="antialiased">
         {children}
       </body>

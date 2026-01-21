@@ -5,7 +5,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { BellDotIcon, Gauge } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
-import { SITE_URLS } from "@/lib/utils";
+import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -32,7 +32,7 @@ export function Header() {
           <div className="flex items-center gap-x-2 lg:gap-x-3 lg:ml-auto">
             <div className="hidden lg:flex items-center">
               <Link
-                href={SITE_URLS.DASHBOARD.DASHBOARD}
+                href={SITE_URLS.dashboard.dashboard}
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "sm" }),
                   "text-muted-foreground",
@@ -42,7 +42,7 @@ export function Header() {
               </Link>
 
               <Link
-                href={SITE_URLS.DASHBOARD.MY_CARDS}
+                href={SITE_URLS.dashboard.my_cards}
                 className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
               >
                 My cards

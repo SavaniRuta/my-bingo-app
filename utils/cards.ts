@@ -4,7 +4,7 @@ import thisOrThat from '@/public/images/this-or-that.png';
 
 
 // My cards data
-export const DUMMY_CARDS = [
+export const DUMmy_cards = [
   {
     id: 'c1',
     image: peopleWatchingCard,

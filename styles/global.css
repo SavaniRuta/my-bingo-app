@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Core shadcn/ui colors */
@@ -29,6 +29,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-ring-destructive: var(--ring-destructive);
 
   /* Chart colors */
   --color-chart-1: var(--chart-1);
@@ -116,6 +117,7 @@
 
   /* Light Theme - Ring */
   --ring: #4338CA;
+  --ring-destructive: #DC262633;
 
   /* Light Theme - Charts */
   --chart-1: #EA580C;

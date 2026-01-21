@@ -2,15 +2,14 @@ import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChartLine, Funnel } from "lucide-react";
-import { DUMMY_CARDS } from "@/lib/cards";
+import { DUMmy_cards } from "@/utils/cards";
 import PlayCard from "@/components/dashboard/playCard/playCard";
-import { AppInput } from "@/components/appInput/appInput";
 
 export default function MyCards() {
   const itemCount = 8;
   const cardsToRender = itemCount
-    ? DUMMY_CARDS.slice(0, itemCount)
-    : DUMMY_CARDS;
+    ? DUMmy_cards.slice(0, itemCount)
+    : DUMmy_cards;
 
   return (
     <>

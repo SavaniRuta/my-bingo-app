@@ -1,9 +1,9 @@
-import { AppInput } from "@/components/appInput/appInput";
+
 import { GameCard } from "@/components/dashboard/gameCard/gameCard";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DUMMY_GAME_CARDS } from "@/lib/cards";
+import { DUMMY_GAME_CARDS } from "@/utils/cards";
 
 export default function MyCards() {
   const itemCount = 12;

@@ -2,9 +2,9 @@
 import { CardSlider } from "@/components/dashboard/cardSlider/cardSlider";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { NewTemplateCard } from "@/components/dashboard/newTemplateCard/newTemplateCard";
-import { DUMMY_TEMPLATE_CARDS } from "@/lib/cards";
+import { DUMMY_TEMPLATE_CARDS } from "@/utils/cards";
 import Link from "next/link";
-import { SITE_URLS } from "@/lib/utils";
+import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Pencil } from "lucide-react";
@@ -36,7 +36,7 @@ export default function EmptyDashboard() {
                   Let's create your first bingo card!
                 </h2>
                 <Link
-                  href={SITE_URLS.DASHBOARD.DASHBOARD}
+                  href={SITE_URLS.dashboard.dashboard}
                   className={cn(
                     buttonVariants({ variant: "default" }),
                     "w-max mx-auto",

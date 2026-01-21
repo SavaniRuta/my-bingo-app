@@ -12,7 +12,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <main className={`flex h-dvh bg-background `}>
+    <main className="flex h-dvh bg-background">
       <div className="flex flex-1 m-6 gap-6">
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
           <div className="w-full max-w-90 mx-auto">{children}</div>

@@ -3,18 +3,17 @@ import {
   AuthCard,
   AuthCardContent,
   AuthCardDescription,
-  AuthCardFooter,
   AuthCardHeader,
   AuthCardTitle,
 } from "@/components/authCard/authCard";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
-import bingoLogo from "@/public/images/bingo-logo.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, Send } from "lucide-react";
 import { Lock } from "lucide-react";
-import { SITE_URLS } from "@/lib/utils";
+import { SITE_URLS } from "@/utils/const";
+import { cn } from "@/lib/utils";
 
 export default function VerifyLoginPage() {
   const [seconds, setSeconds] = useState(26);
@@ -32,25 +31,32 @@ export default function VerifyLoginPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Link href={SITE_URLS.HOME}>
-          <Image src={bingoLogo} alt="Bingo Logo Image" className="mb-5" />
+        <Link href={SITE_URLS.home} className="w-max">
+          <Image
+            src="/images/bingo-logo.svg"
+            alt="Bingo Logo Image"
+            width={75}
+            height={40}
+          />
         </Link>
-        <AuthCardTitle className="flex items-center gap-4">
-          <Link
-            href={SITE_URLS.LOGIN.FORGOT_PASSWORD}
-            className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
-          >
-            <ChevronLeft width={16} height={16}/>
-          </Link>
-          Check your email
-        </AuthCardTitle>
-        <AuthCardDescription>
-          For a fast, secure login—no password required.
-        </AuthCardDescription>
+        <div>
+          <AuthCardTitle className="flex items-center gap-4">
+            <Link
+              href={SITE_URLS.forgot_password}
+              className="rounded-lg w-7 h-7 flex items-center justify-center border border-input shadow-xs"
+            >
+              <ChevronLeft width={16} height={16} />
+            </Link>
+            Check your email
+          </AuthCardTitle>
+          <AuthCardDescription>
+            For a fast, secure login—no password required.
+          </AuthCardDescription>
+        </div>
       </AuthCardHeader>
 
-      <AuthCardContent className="space-y-2">
-        <div className="border border-input rounded-2xl p-4 flex flex-col justify-center items-center">
+      <AuthCardContent>
+        <div className="border border-input rounded-2xl p-4 flex flex-col justify-center items-center mb-3">
           <p className="bg-blue-50 mb-3 w-11 h-11 rounded-xl border border-input flex items-center justify-center">
             <Send className="text-link" />
           </p>
@@ -59,14 +65,13 @@ export default function VerifyLoginPage() {
               Didn’t get it? Check your spam folder
             </span>
             {seconds > 0 ? (
-              <span>Resend in {seconds} seconds</span>
+              <span className="text-gray-500">Resend in {seconds} seconds</span>
             ) : (
               <button
                 type="button"
                 className="text-link underline font-medium"
                 onClick={() => {
-                  // UI only for now.
-                  setSeconds(26); // restart on resend click
+                  setSeconds(26);
                 }}
               >
                 Resend link
@@ -74,18 +79,17 @@ export default function VerifyLoginPage() {
             )}
           </p>
         </div>
-      </AuthCardContent>
 
-      <AuthCardFooter>
-        <Button type="button" variant="ghost" className="w-full">
-          <Link
-            href={SITE_URLS.LOGIN.LOGIN_PASSWORD}
-            className="flex items-center gap-2 justify-center w-full"
-          >
-            <Lock /> Use a password instead
-          </Link>
-        </Button>
-      </AuthCardFooter>
+        <Link
+          href={SITE_URLS.login_password}
+          className={cn(
+            buttonVariants({ variant: "ghost", size: "lg" }),
+            "w-full",
+          )}
+        >
+          <Lock /> Use a password instead
+        </Link>
+      </AuthCardContent>
     </AuthCard>
   );
 }

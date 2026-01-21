@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { ChartLine } from "lucide-react";
 import Link from "next/link";
 
-import { DUMMY_CARDS, DUMMY_GAME_CARDS } from "@/lib/cards";
-import { AppInput } from "@/components/appInput/appInput";
+import { DUMmy_cards, DUMMY_GAME_CARDS } from "@/utils/cards";
+import { Input } from "@/components/ui/input";
 
 export default function Dashboard() {
   const itemCount = 4;
   const cardsToRender = itemCount
-    ? DUMMY_CARDS.slice(0, itemCount)
-    : DUMMY_CARDS;
+    ? DUMmy_cards.slice(0, itemCount)
+    : DUMmy_cards;
 
   const itemGameCount = 4;
   const gameCardsToRender = itemGameCount
@@ -26,7 +26,7 @@ export default function Dashboard() {
         description="An overview of your recent account activity."
         actions={
           <div className="flex gap-2">
-            <AppInput placeholder="Search" variant="search"/>
+            <Input placeholder="Search"/>
             <Button variant="outline" className="h-10">
               <ChartLine />
             </Button>
