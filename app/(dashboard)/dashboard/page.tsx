@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChartLine } from "lucide-react";
 import Link from "next/link";
 
-import { DUMmy_cards, DUMMY_GAME_CARDS } from "@/utils/cards";
+import { DUMmy_cards, DUMMY_GAME_CARDS } from "@/utils/dummy-data";
 import { Input } from "@/components/ui/input";
 
 export default function Dashboard() {

@@ -2,8 +2,9 @@ import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChartLine, Funnel } from "lucide-react";
-import { DUMmy_cards } from "@/utils/cards";
+import { DUMmy_cards } from "@/utils/dummy-data";
 import PlayCard from "@/components/dashboard/playCard/playCard";
+import { Input } from "@/components/ui/input";
 
 export default function MyCards() {
   const itemCount = 8;
@@ -18,7 +19,7 @@ export default function MyCards() {
         description="Edit, publish, share, print or play online with all the cards you’ve created."
         actions={
           <div className="flex gap-2">
-            <AppInput placeholder="Search" variant="search"/>
+            <Input placeholder="Search" />
             <Button variant="outline">
               <Funnel />
             </Button>

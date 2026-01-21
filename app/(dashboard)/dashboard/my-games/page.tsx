@@ -3,7 +3,8 @@ import { GameCard } from "@/components/dashboard/gameCard/gameCard";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DUMMY_GAME_CARDS } from "@/utils/cards";
+import { Input } from "@/components/ui/input";
+import { DUMMY_GAME_CARDS } from "@/utils/dummy-data";
 
 export default function MyCards() {
   const itemCount = 12;
@@ -17,7 +18,7 @@ export default function MyCards() {
         description="Manage your active games."
         actions={
           <div className="flex gap-2">
-            <AppInput placeholder="Search" variant="search"/>
+            <Input placeholder="Search"/>
             <Button variant="secondary">Start new game</Button>
           </div>
         }

@@ -87,7 +87,7 @@ export default function LoginPage() {
             placeholder="john@example.com"
             // className="border-destructive focus-visible:ring-destructive mb-1"
           />
-          {/* <p className="text-[0.8rem] text-destructive-foreground">This email is invalid.</p> */}
+          <p className="text-[0.8rem] text-destructive-foreground">This email is invalid.</p>
         </div>
 
         <div className="space-y-2">

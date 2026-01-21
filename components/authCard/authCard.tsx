@@ -33,7 +33,7 @@ function AuthCardTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-title"
       className={cn(
         "flex items-center gap-4 leading-none font-recoleta font-bold text-3xl mb-3",
-        className
+        className,
       )}
       {...props}
     />

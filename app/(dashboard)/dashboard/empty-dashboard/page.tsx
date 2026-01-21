@@ -2,7 +2,7 @@
 import { CardSlider } from "@/components/dashboard/cardSlider/cardSlider";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { NewTemplateCard } from "@/components/dashboard/newTemplateCard/newTemplateCard";
-import { DUMMY_TEMPLATE_CARDS } from "@/utils/cards";
+import { DUMMY_TEMPLATE_CARDS } from "@/utils/dummy-data";
 import Link from "next/link";
 import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";

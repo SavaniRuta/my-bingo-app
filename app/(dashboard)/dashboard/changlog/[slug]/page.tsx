@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import sharingSmaterChangelog from "@/public/images/sharing-smater-changelog.png";
 import Image from "next/image";
-import { formatSlugToTitle } from "@/lib/utils"
+import { formatSlugToTitle } from "@/utils/const"
 
 export default function Changlog() {
   const params = useParams();

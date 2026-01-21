@@ -1,6 +1,6 @@
 import { ChangeLogPost } from "@/components/dashboard/changeLogPost/changeLogPost";
 import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-import { CHANGLOG_POSTS } from "@/utils/changlog";
+import { CHANGLOG_POSTS } from "@/utils/dummy-data";
 
 export default function Changlog() {
   const itemCount = 12;
