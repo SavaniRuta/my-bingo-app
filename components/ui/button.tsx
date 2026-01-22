@@ -18,7 +18,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-base-primary",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 shadow-none",
-        link: "text-primary underline-offset-3 hover:underline",
+        link: "text-primary underline-offset-3 hover:underline shadow-none cursor-pointer",
         success: "bg-success border border-success-border text-success-foreground",
       },
       size: {
@@ -27,6 +27,7 @@ const buttonVariants = cva(
         lg: "h-10 px-6 has-[>svg]:px-4 text-base",
         xl: "h-11 px-6 has-[>svg]:px-4 text-base",
         icon: "size-9",
+        link: "h-9 px-0 py-0 has-[>svg]:px-0",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
       },

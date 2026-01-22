@@ -13,7 +13,6 @@ type PlayCardProps = {
 export function GameCard({ image, title, status }: PlayCardProps) {
   return (
     <>
-      {/* Card */}
       <Link
         href="#"
         className="flex gap-4 p-3 border border-border rounded-xl bg-card shadow-sm transition-all flex-wrap min-w-65"
@@ -31,13 +30,14 @@ export function GameCard({ image, title, status }: PlayCardProps) {
             <div className="flex justify-between items-center">
               <div>
                 <Badge
-                  variant={status === "Active" ? "secondary" : "outline"}
-                  className={
-                    status === "Expiring"
-                      ? "bg-warning border border-warning-border text-warning-foreground"
-                      : status === "Paused"
-                        ? "bg-accent border border-light text-accent-foreground"
-                        : undefined
+                  variant={
+                    status === "Active"
+                      ? "secondary"
+                      : status === "Expiring"
+                        ? "warning"
+                        : status === "Paused"
+                          ? "accent"
+                          : "outline"
                   }
                 >
                   {status}
@@ -48,7 +48,7 @@ export function GameCard({ image, title, status }: PlayCardProps) {
               </Button>
             </div>
             <h3 className="font-medium text-card-foreground">{title}</h3>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center lg:justify-between gap-3">
               <p className="text-sm text-muted-foreground">14 calls</p>
               <Circle className="text-muted-foreground w-1.25 h-1.25" />
               <p className="text-sm text-muted-foreground">43 players</p>

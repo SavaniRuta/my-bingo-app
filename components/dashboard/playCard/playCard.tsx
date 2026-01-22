@@ -19,12 +19,11 @@ type PlayCardProps = {
 export default function PlayCard({ image, title, variant }: PlayCardProps) {
   return (
     <div className="flex flex-col gap-3 snap-start min-w-65 lg:min-w-0">
-      {/* Card */}
       <Link
         href="#"
         className="overflow-hidden h-64.5 flex flex-col gap-3 p-3 pb-0 border border-border rounded-xl bg-card shadow-sm transition-all"
       >
-        {/* Actions */}
+        
         <div className="flex justify-between">
           <Button
             variant="outline"
@@ -67,7 +66,7 @@ export default function PlayCard({ image, title, variant }: PlayCardProps) {
         </div>
 
         {/* Image */}
-        <div className="rounded-lg max-w-55 mx-auto">
+        <div className="rounded-lg lg:max-w-55 max-w-78 mx-auto">
           <Image
             src={image}
             alt={title}
@@ -80,11 +79,13 @@ export default function PlayCard({ image, title, variant }: PlayCardProps) {
       {/* Footer / Title section */}
       {variant === "my-cards" ? (
         <div className="flex items-center gap-3">
-          <Input type="checkbox" className="w-auto" />
-          <span className="font-medium text-card-foreground">{title}</span>
+          <Input type="checkbox" className="w-auto h-auto" />
+          <Link href="#" title={title} className="font-medium text-card-foreground">
+            {title}
+          </Link>
         </div>
       ) : (
-        <Link href="#" className="font-medium text-card-foreground">
+        <Link href="#" title={title} className="font-medium text-card-foreground">
           {title}
         </Link>
       )}

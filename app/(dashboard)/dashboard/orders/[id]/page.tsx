@@ -1,5 +1,4 @@
 "use client";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { OctagonAlert, Truck } from "lucide-react";
@@ -11,25 +10,6 @@ export default function OrderDetail() {
 
   return (
     <>
-      <ScreenHeader
-        title={`Order #${orderId}`}
-        description="Placed on 20 Feb 2024, 8:22 pm"
-        actions={
-          <div className="flex gap-2">
-            <Button variant="outline">
-              <OctagonAlert />
-              Report a problem
-            </Button>
-          </div>
-        }
-        meta={
-          <Badge variant="secondary">
-            <Truck />
-            Pending
-          </Badge>
-        }
-      ></ScreenHeader>
-
       {/* Bottom content */}
       <div className="py-8">
         <div className="dashboard-container">

@@ -1,9 +1,5 @@
 
 import { GameCard } from "@/components/dashboard/gameCard/gameCard";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { DUMMY_GAME_CARDS } from "@/utils/dummy-data";
 
 export default function MyCards() {
@@ -13,24 +9,12 @@ export default function MyCards() {
     : DUMMY_GAME_CARDS;
   return (
     <>
-      <ScreenHeader
-        title="My Games"
-        description="Manage your active games."
-        actions={
-          <div className="flex gap-2">
-            <Input placeholder="Search"/>
-            <Button variant="secondary">Start new game</Button>
-          </div>
-        }
-        meta={<Badge variant="secondary">21 games</Badge>}
-      ></ScreenHeader>
-
       {/* Bottom content */}
       <div className="py-8">
         <div className="dashboard-container py-4 lg:px-4">
           <div className="space-y-4 lg:space-y-8">
             <div>
-              <ul className="snap-x snap-mandatory remove-scroll lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:overflow-visible lg:snap-none lg:px-0 flex overflow-x-auto px-4 gap-5 lg:gap-7">
+              <ul className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
                 {gameCardsToRender.map((card) => (
                   <li key={card.id}>
                     <GameCard

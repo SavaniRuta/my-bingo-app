@@ -23,10 +23,13 @@ export const SITE_URLS = {
 
   TEMPLATE: "/template",
 
-  dashboard: {
-    dashboard: "/dashboard",
-    my_cards: "/dashboard/my-cards",
-  }
+  dashboard: "/dashboard",
+  my_cards: "/dashboard/my-cards",
+  account: "/dashboard/account",
+  games: "/dashboard/games",
+  appearance: "/dashboard/appearance",
+  billing: "/dashboard/billing",
+  integrations: "/dashboard/integrations",
 
 } as const;
 

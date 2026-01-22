@@ -1,42 +1,10 @@
 import type { Metadata } from "next";
 import "@styles/global.css";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
 import { Blend, User, CreditCard, SwatchBook } from "lucide-react";
-
-// Menu items.
-const items = [
-  {
-    title: "My Account",
-    url: "#",
-    icon: User,
-  },
-  {
-    title: "Billing",
-    url: "#",
-    icon: CreditCard,
-  },
-  {
-    title: "Integration",
-    url: "#",
-    icon: Blend,
-  },
-  {
-    title: "Appearance",
-    url: "#",
-    icon: SwatchBook,
-  },
-];
+import Link from "next/link";
+import { SITE_URLS } from "@/utils/const";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Settings",
@@ -48,39 +16,44 @@ export default function SettingsLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div>
-      <ScreenHeader
-        title="Settings"
-        description="Manage your account settings."
-      ></ScreenHeader>
-
       <div className="py-8">
         <div className="dashboard-container">
-          <SidebarProvider className="min-h-auto">
-            <div className="flex gap-12">
-              <Sidebar className="relative border-none h-auto">
-                <SidebarContent>
-                  <SidebarGroup>
-                    <SidebarGroupContent>
-                      <SidebarMenu>
-                        {items.map((item) => (
-                          <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton asChild>
-                              <a href={item.url}>
-                                <item.icon />
-                                <span>{item.title}</span>
-                              </a>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        ))}
-                      </SidebarMenu>
-                    </SidebarGroupContent>
-                  </SidebarGroup>
-                </SidebarContent>
-              </Sidebar>
-
-              <div className="w-full lg:max-w-150">{children}</div>
+          <div className="flex items-start flex-wrap gap-10 lg:gap-12">
+            <div className="flex-col gap-1 max-w-64 w-full hidden lg:flex">
+              <Link
+                href={SITE_URLS.account}
+                className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "text-sm justify-start")}
+              >
+                <User />
+                Account
+              </Link>
+              <Link
+                href={SITE_URLS.billing}
+                className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "text-sm justify-start")}
+              >
+                <CreditCard />
+                Billing
+              </Link>
+              <Link
+                href={SITE_URLS.integrations}
+                className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "text-sm justify-start")}
+              >
+                <Blend />
+                Integrations
+              </Link>
+              <Link
+                href={SITE_URLS.appearance}
+                className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "text-sm justify-start")}
+              >
+                <SwatchBook />
+                Appearance
+              </Link>
             </div>
-          </SidebarProvider>
+
+            {/* <div> */}
+              {children}
+            {/* </div> */}
+          </div>
         </div>
       </div>
     </div>

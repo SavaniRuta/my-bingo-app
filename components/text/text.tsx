@@ -13,10 +13,6 @@ export const textVariants = cva("text-foreground", {
             "2xl": "text-2xl",
             "3xl": "text-3xl",
             "4xl": "text-4xl",
-            "5xl": "text-5xl",
-            "6xl": "text-6xl",
-            "7xl": "text-7xl",
-            "9xl": "text-9xl"
         },
         weight: {
             normal: "font-normal",
@@ -35,11 +31,6 @@ export const textVariants = cva("text-foreground", {
             success: "text-success-foreground",
             card: "text-card-foreground",
             popover: "text-popover-foreground",
-            title: "text-[--color-title]",
-            text: "text-[--color-text]",
-            textGray: "text-[--color-gray]",
-            textGray500: "text-[--color-text-gray-500]",
-            link: "text-[--color-link]"
         }
     },
     defaultVariants: {

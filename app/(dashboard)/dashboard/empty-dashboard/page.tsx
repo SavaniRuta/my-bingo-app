@@ -1,6 +1,5 @@
 "use client";
 import { CardSlider } from "@/components/dashboard/cardSlider/cardSlider";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { NewTemplateCard } from "@/components/dashboard/newTemplateCard/newTemplateCard";
 import { DUMMY_TEMPLATE_CARDS } from "@/utils/dummy-data";
 import Link from "next/link";
@@ -14,10 +13,6 @@ import createBingoCard from "@/public/images/create-bingo-card.png";
 export default function EmptyDashboard() {
   return (
     <>
-      <ScreenHeader
-        title="Dashboard"
-        description="An overview of your recent account activity."
-      />
 
       {/* Bottom content */}
       <div className="py-8">
@@ -36,7 +31,7 @@ export default function EmptyDashboard() {
                   Let's create your first bingo card!
                 </h2>
                 <Link
-                  href={SITE_URLS.dashboard.dashboard}
+                  href={SITE_URLS.dashboard}
                   className={cn(
                     buttonVariants({ variant: "default" }),
                     "w-max mx-auto",

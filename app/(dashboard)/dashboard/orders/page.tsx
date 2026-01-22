@@ -1,4 +1,3 @@
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { Badge } from "@/components/ui/badge";
 
 import {
@@ -107,12 +106,6 @@ const orders = [
 export default function Orders() {
   return (
     <>
-      <ScreenHeader
-        title="Orders"
-        description="View your bingo card delivery order history."
-        meta={<Badge variant="secondary">21 Orders</Badge>}
-      />
-
       {/* Bottom content */}
       <div className="py-8">
         <div className="dashboard-container">

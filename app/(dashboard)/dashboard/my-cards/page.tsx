@@ -1,40 +1,15 @@
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ChartLine, Funnel } from "lucide-react";
-import { DUMmy_cards } from "@/utils/dummy-data";
+import { DUMMY_CARDS } from "@/utils/dummy-data";
 import PlayCard from "@/components/dashboard/playCard/playCard";
-import { Input } from "@/components/ui/input";
 
 export default function MyCards() {
   const itemCount = 8;
   const cardsToRender = itemCount
-    ? DUMmy_cards.slice(0, itemCount)
-    : DUMmy_cards;
+    ? DUMMY_CARDS.slice(0, itemCount)
+    : DUMMY_CARDS;
 
   return (
     <>
-      <ScreenHeader
-        title="My cards"
-        description="Edit, publish, share, print or play online with all the cards you’ve created."
-        actions={
-          <div className="flex gap-2">
-            <Input placeholder="Search" />
-            <Button variant="outline">
-              <Funnel />
-            </Button>
-            <Button variant="outline">
-              <ChartLine />
-            </Button>
-            <Button variant="destructive" className="opacity-50">
-              Delete
-            </Button>
-          </div>
-        }
-        meta={<Badge variant="secondary">21 Cards</Badge>}
-      ></ScreenHeader>
-
-      {/* Bottom content */}
+      {/* My Cards content */}
       <div className="py-8">
         <div className="dashboard-container py-4 lg:px-4">
           <div className="space-y-4 lg:space-y-8">

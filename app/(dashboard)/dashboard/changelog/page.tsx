@@ -1,8 +1,7 @@
 import { ChangeLogPost } from "@/components/dashboard/changeLogPost/changeLogPost";
-import { ScreenHeader } from "@/components/dashboard/header/screenHeader";
 import { CHANGLOG_POSTS } from "@/utils/dummy-data";
 
-export default function Changlog() {
+export default function Changelog() {
   const itemCount = 12;
   const changlogToRender = itemCount
     ? CHANGLOG_POSTS.slice(0, itemCount)
@@ -10,12 +9,6 @@ export default function Changlog() {
 
   return (
     <>
-      <ScreenHeader
-        title="What’s new"
-        description="New updates and announcements from Bingo Card Creator."
-      ></ScreenHeader>
-
-      {/* Bottom content */}
       <div className="py-8">
         <div className="dashboard-container py-4 lg:px-4">
           <div className="space-y-4 lg:space-y-8">

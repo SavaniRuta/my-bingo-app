@@ -6,7 +6,7 @@ import onlinePlayRewampChnagelog from '@/public/images/online-play-rewamp-chnage
 
 
 // My cards data
-export const DUMmy_cards = [
+export const DUMMY_CARDS = [
   {
     id: 'c1',
     image: peopleWatchingCard,

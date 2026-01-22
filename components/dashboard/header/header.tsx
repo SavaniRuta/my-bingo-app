@@ -1,82 +1,220 @@
-"use client";
-import Image from "next/image";
-import bingoLogo from "@/public/images/bingo-logo.svg";
+import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { BellDotIcon, Gauge } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import Link from "next/link";
-import { SITE_URLS } from "@/utils/const";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { SITE_URLS } from "@/utils/const";
+import { ChartLine, EllipsisVertical, Funnel, Search, User, CreditCard, Blend, SwatchBook } from "lucide-react";
+import Link from "next/link";
 
-export function Header() {
+type HeaderProps = {
+  pathname: string;
+};
+
+export function Header({ pathname }: HeaderProps) {
+  let title = "";
+  let description: string | undefined;
+
+  switch (true) {
+    case pathname === "/dashboard":
+      title = "Dashboard";
+      description = "An overview of your recent account activity.";
+      break;
+
+    case pathname === "/dashboard/my-cards":
+      title = "My cards";
+      description =
+        "Edit, publish, share, print or play online with all the cards you’ve created.";
+      break;
+
+    case pathname === "/dashboard/games":
+      title = "Active games";
+      description = "Manage your active games.";
+      break;
+
+    case pathname === "/dashboard/empty-dashboard":
+      title = "Dashboard";
+      description = "An overview of your recent account activity.";
+      break;
+
+    case pathname === "/dashboard/changelog":
+      title = "What’s new";
+      description = "New updates and announcements from Bingo Card Creator.";
+      break;
+
+    case pathname === "/dashboard/account":
+    case pathname === "/dashboard/billing":
+    case pathname === "/dashboard/integrations":
+    case pathname === "/dashboard/appearance":
+      title = "Settings";
+      description = "Manage your account settings.";
+      break;
+
+    case pathname === "/dashboard/orders":
+      title = "Orders";
+      description = "View your bingo card delivery order history.";
+      break;
+
+    default:
+      title = "Dashboard";
+  }
+
   return (
-    <header className="px-4 lg:px-8 py-3 sticky top-0 z-50 border-b border-border bg-white">
-      <div>
-        <div className="flex items-center flex-1 justify-between lg:justify-normal gap-x-4 lg:gap-x-8">
-          <div className="w-64 lg:block hidden">
-            <Image src={bingoLogo} alt="Bingo Logo" width={80} />
-          </div>
-          <div className="flex items-center gap-x-4 lg:gap-x-5">
-            <Image
-              src={bingoLogo}
-              alt="Bingo Logo"
-              width={70}
-              className="flex lg:hidden"
-            />
-            <div className="shrink-0 bg-border w-px block h-5 lg:hidden"></div>
-            <Button variant="secondary" className="block lg:hidden">
-              Create card
-            </Button>
-          </div>
+    <div className="overflow-y-auto lg:pl-0 flex-auto">
+      <div className="bg-card border-b border-border py-5 lg:py-7 shadow-xs">
+        <div className="dashboard-container">
+          {/* Breadcrubs */}
+          {/* <div>
+            <p>Breadcrubs</p>
+          </div> */}
 
-          <div className="flex items-center gap-x-2 lg:gap-x-3 lg:ml-auto">
-            <div className="hidden lg:flex items-center">
-              <Link
-                href={SITE_URLS.dashboard.dashboard}
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "sm" }),
-                  "text-muted-foreground",
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <h1 className="font-recoleta text-3xl font-bold">{title}</h1>
+                {(pathname === "/dashboard/my-cards" ||
+                  pathname === "/dashboard/games" ||
+                  pathname === "/dashboard/orders") && (
+                  <Badge variant="secondary">
+                    {pathname === "/dashboard/my-cards" && "21 cards"}
+                    {pathname === "/dashboard/games" && "21 games"}
+                    {pathname === "/dashboard/orders" && "21 orders"}
+                  </Badge>
                 )}
-              >
-                Dashboard
-              </Link>
-
-              <Link
-                href={SITE_URLS.dashboard.my_cards}
-                className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
-              >
-                My cards
-              </Link>
-            </div>
-
-            <div className="shrink-0 bg-border w-px hidden h-6 lg:block"></div>
-
-            <div className="shrink-0 flex items-center gap-3">
-              <div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-muted-foreground"
-                >
-                  <Gauge width={24} height={24} />
-                </Button>
-                <Button variant="ghost" className="text-muted-foreground">
-                  <BellDotIcon width={24} height={24} />
-                </Button>
               </div>
 
-              <Button variant="secondary" className="hidden lg:block">
-                Create card
-              </Button>
-
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
+              {description && (
+                <p className="font-inter text-base font-normal text-muted-foreground">
+                  {description}
+                </p>
+              )}
             </div>
+
+            <div className="hidden lg:flex items-center gap-2">
+              {pathname === "/dashboard" && (
+                <>
+                  <InputGroup>
+                    <InputGroupAddon>
+                      <Search className="text-muted-foreground" />
+                    </InputGroupAddon>
+                    <InputGroupInput
+                      type="text"
+                      placeholder="search"
+                      className="border-0 focus-visible:ring-0 shadow-none"
+                    />
+                  </InputGroup>
+
+                  <Link
+                    href={SITE_URLS.dashboard}
+                    className={cn(buttonVariants({ variant: "outline" }))}
+                  >
+                    <ChartLine />
+                  </Link>
+                </>
+              )}
+
+              {pathname === "/dashboard/my-cards" && (
+                <>
+                  <InputGroup>
+                    <InputGroupAddon>
+                      <Search className="text-muted-foreground" />
+                    </InputGroupAddon>
+                    <InputGroupInput
+                      type="text"
+                      placeholder="search"
+                      className="border-0 focus-visible:ring-0 shadow-none"
+                    />
+                  </InputGroup>
+
+                  <Button variant="outline">
+                    <Funnel />
+                  </Button>
+
+                  <Button variant="outline">
+                    <ChartLine />
+                  </Button>
+
+                  <Button variant="destructive" disabled>
+                    Delete
+                  </Button>
+                </>
+              )}
+
+              {pathname === "/dashboard/games" && (
+                <>
+                  <InputGroup>
+                    <InputGroupAddon>
+                      <Search className="text-muted-foreground" />
+                    </InputGroupAddon>
+                    <InputGroupInput
+                      type="text"
+                      placeholder="search"
+                      className="border-0 focus-visible:ring-0 shadow-none"
+                    />
+                  </InputGroup>
+
+                  <Link
+                    href={SITE_URLS.dashboard}
+                    className={cn(buttonVariants({ variant: "secondary" }))}
+                  >
+                    Start new game
+                  </Link>
+                </>
+              )}
+            </div>
+
+            {pathname === "/dashboard/account"  && (
+              <>
+                <div className="lg:hidden">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" size="icon">
+                        <EllipsisVertical />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem asChild>
+                        <Link href={SITE_URLS.account} className="cursor-pointer">
+                          <User className="size-4" />
+                          Account
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href={SITE_URLS.billing} className="cursor-pointer">
+                          <CreditCard className="size-4" />
+                          Billing
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href={SITE_URLS.integrations} className="cursor-pointer">
+                          <Blend className="size-4" />
+                          Integrations
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href={SITE_URLS.appearance} className="cursor-pointer">
+                          <SwatchBook className="size-4" />
+                          Appearance
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </>
+            )}
+
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }

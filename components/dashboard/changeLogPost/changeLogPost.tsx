@@ -10,7 +10,7 @@ export function ChangeLogPost({ image, title }: ChangeLogPostProps) {
   return (
     <>
       {/* Changlog Card */}
-      <Link href="#">
+      <Link href="#" title={title}>
         <div className="bg-card border border-border rounded-xl p-2.5 pb-4 shadow-sm transition-all">
           <div>
             <Image
