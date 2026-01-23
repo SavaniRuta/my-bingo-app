@@ -15,19 +15,13 @@ import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/utils/const";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import BccLogo from "@/components/bccLogo";
 
 export default function LoginPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Link href={SITE_URLS.home} className="w-max">
-          <Image
-            src="/images/bingo-logo.svg"
-            alt="Bingo Logo Image"
-            width={75}
-            height={40}
-          />
-        </Link>
+        <BccLogo />
         <div>
           <AuthCardTitle>Login</AuthCardTitle>
           <AuthCardDescription>

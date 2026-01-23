@@ -14,19 +14,13 @@ import { SITE_URLS } from "@/utils/const";
 import { ChevronLeft } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import BccLogo from "@/components/bccLogo";
 
 export default function RegisterEmailPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Link href={SITE_URLS.home} className="w-max">
-          <Image
-            src="/images/bingo-logo.svg"
-            alt="Bingo Logo Image"
-            width={75}
-            height={40}
-          />
-        </Link>
+        <BccLogo />
         <div>
           <AuthCardTitle className="flex items-center gap-4">
             <Link

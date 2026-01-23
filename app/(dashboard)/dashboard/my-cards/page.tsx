@@ -1,5 +1,5 @@
 import { DUMMY_CARDS } from "@/utils/dummy-data";
-import PlayCard from "@/components/dashboard/playCard/playCard";
+import PlayCard from "@/components/dashboard/bingoCard/bingoCard";
 
 export default function MyCards() {
   const itemCount = 8;
@@ -21,6 +21,7 @@ export default function MyCards() {
                       image={card.image}
                       title={card.title}
                       variant="my-cards"
+                      id={card.id}
                     />
                   </li>
                 ))}

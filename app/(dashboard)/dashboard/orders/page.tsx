@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 import {
   Table,
@@ -18,13 +19,33 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-success border border-success text-success-foreground"
+        variant="success"
+        size="lg"
       >
         Completed
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
   {
     orderId: "#123421525125",
@@ -33,13 +54,33 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-warning border border-warning text-warning-foreground"
+        variant="warning"
+        size="lg"
       >
         On route
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
   {
     orderId: "#123421525126",
@@ -48,13 +89,33 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-destructive border border-destructive text-destructive-foreground"
+        variant="warning"
+        size="lg"
       >
         Canceled
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
   {
     orderId: "#123421525127",
@@ -63,13 +124,33 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-success border border-success text-success-foreground"
+        variant="success"
+        size="lg"
       >
         Completed
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
   {
     orderId: "#123421525128",
@@ -78,13 +159,33 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-warning border border-warning text-warning-foreground"
+        variant="warning"
+        size="lg"
       >
         On route
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
   {
     orderId: "#123421525129",
@@ -93,23 +194,42 @@ const orders = [
     orderDate: "Jan 20th, 2024",
     status: (
       <Badge
-        variant="outline"
-        className="bg-destructive border border-destructive text-destructive-foreground"
+        variant="destructive"
+        size="lg"
       >
         Canceled
       </Badge>
     ),
-    info: "Invoice",
+    info: (
+      <>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          Invoice
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+        >
+          PDF
+        </Button>
+        <Button
+          size="sm"
+        >
+          View
+        </Button>
+      </>
+    ),
   },
 ];
 
 export default function Orders() {
   return (
     <>
-      {/* Bottom content */}
       <div className="py-8">
         <div className="dashboard-container">
-          <div className="max-w-241.25 p-6 rounded-xl border">
+          <div className="max-w-241.25 p-6 rounded-xl border bg-card shadow-sm">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -118,7 +238,7 @@ export default function Orders() {
                   <TableHead>Total</TableHead>
                   <TableHead>Order date</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Info</TableHead>
+                  <TableHead>Info</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -131,7 +251,7 @@ export default function Orders() {
                     <TableCell>{order.total}</TableCell>
                     <TableCell>{order.orderDate}</TableCell>
                     <TableCell>{order.status}</TableCell>
-                    <TableCell className="text-right">{order.info}</TableCell>
+                    <TableCell className="text-right"><div className="flex gap-2">{order.info}</div></TableCell>
                   </TableRow>
                 ))}
               </TableBody>

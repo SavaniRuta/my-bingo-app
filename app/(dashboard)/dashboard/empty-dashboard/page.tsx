@@ -1,6 +1,6 @@
 "use client";
 import { CardSlider } from "@/components/dashboard/cardSlider/cardSlider";
-import { NewTemplateCard } from "@/components/dashboard/newTemplateCard/newTemplateCard";
+import { NewTemplateCard } from "@/components/dashboard/templateCard/templateCard";
 import { DUMMY_TEMPLATE_CARDS } from "@/utils/dummy-data";
 import Link from "next/link";
 import { SITE_URLS } from "@/utils/const";
@@ -50,7 +50,7 @@ export default function EmptyDashboard() {
             items={DUMMY_TEMPLATE_CARDS}
           >
             {(card) => (
-              <NewTemplateCard image={card.image} title={card.title} />
+              <NewTemplateCard image={card.image} title={card.title} id={card.id} />
             )}
           </CardSlider>
         </div>

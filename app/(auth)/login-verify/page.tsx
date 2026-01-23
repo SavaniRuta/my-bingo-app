@@ -14,6 +14,7 @@ import { ChevronLeft, Send } from "lucide-react";
 import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
+import BccLogo from "@/components/bccLogo";
 
 export default function VerifyLoginPage() {
   const [seconds, setSeconds] = useState(26);
@@ -31,14 +32,7 @@ export default function VerifyLoginPage() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Link href={SITE_URLS.home} className="w-max">
-          <Image
-            src="/images/bingo-logo.svg"
-            alt="Bingo Logo Image"
-            width={75}
-            height={40}
-          />
-        </Link>
+        <BccLogo />
         <div>
           <AuthCardTitle className="flex items-center gap-4">
             <Link

@@ -1,5 +1,5 @@
 import { GameCard } from "@/components/dashboard/gameCard/gameCard";
-import PlayCard from "@/components/dashboard/playCard/playCard";
+import PlayCard from "@/components/dashboard/bingoCard/bingoCard";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -41,7 +41,11 @@ export default function Dashboard() {
               <ul className="snap-x snap-mandatory remove-scroll lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:overflow-visible lg:snap-none lg:px-0 flex overflow-x-auto px-4 gap-5 lg:gap-8">
                 {cardsToRender.map((card) => (
                   <li key={card.id}>
-                    <PlayCard image={card.image} title={card.title} />
+                    <PlayCard
+                      image={card.image}
+                      title={card.title}
+                      id={card.id}
+                    />
                   </li>
                 ))}
               </ul>
@@ -53,14 +57,13 @@ export default function Dashboard() {
               <h3 className="font-inter text-xl font-semibold text-foreground">
                 Active Games
               </h3>
-               <Link
+              <Link
                 href={SITE_URLS.games}
                 className={cn(buttonVariants({ variant: "outline" }))}
               >
                 View all
               </Link>
             </div>
-            {/* Game Card */}
 
             <div className="dashboard-container py-4 lg:px-4">
               <ul className="snap-x snap-mandatory remove-scroll lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:overflow-visible lg:snap-none lg:px-0 flex overflow-x-auto px-4 gap-5 lg:gap-8">
@@ -70,6 +73,7 @@ export default function Dashboard() {
                       image={card.image}
                       title={card.title}
                       status={card.status}
+                      id={card.id}
                     />
                   </li>
                 ))}

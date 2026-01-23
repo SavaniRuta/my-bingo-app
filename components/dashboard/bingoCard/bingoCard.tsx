@@ -9,18 +9,21 @@ import {
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { SITE_URLS } from "@/utils/const";
 
 type PlayCardProps = {
   image: StaticImageData;
   title: string;
   variant?: string;
+  id: string;
 };
 
-export default function PlayCard({ image, title, variant }: PlayCardProps) {
+export default function PlayCard({ image, title, variant, id }: PlayCardProps) {
   return (
     <div className="flex flex-col gap-3 snap-start min-w-65 lg:min-w-0">
       <Link
-        href="#"
+        href={SITE_URLS.my_cards + `/${id}`}
         className="overflow-hidden h-64.5 flex flex-col gap-3 p-3 pb-0 border border-border rounded-xl bg-card shadow-sm transition-all"
       >
         
@@ -79,7 +82,11 @@ export default function PlayCard({ image, title, variant }: PlayCardProps) {
       {/* Footer / Title section */}
       {variant === "my-cards" ? (
         <div className="flex items-center gap-3">
-          <Input type="checkbox" className="w-auto h-auto" />
+          <Checkbox
+            id="terms-checkbox-invalid"
+            name="terms-checkbox-invalid"
+            aria-invalid
+          />
           <Link href="#" title={title} className="font-medium text-card-foreground">
             {title}
           </Link>

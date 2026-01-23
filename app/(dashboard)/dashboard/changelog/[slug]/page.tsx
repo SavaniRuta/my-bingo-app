@@ -35,6 +35,7 @@ export default function Changlog() {
                 />
               </div>
               <div className="py-6 space-y-4">
+                <h3 className="font-semibold">{title}</h3>
                 <p>
                   In the latest release, I've added support for commit message
                   and description suggestions via an integration with OpenAI.

@@ -21,6 +21,7 @@ export default function MyCards() {
                       image={card.image}
                       title={card.title}
                       status={card.status}
+                      id={card.id}
                     />
                   </li>
                 ))}

@@ -3,18 +3,20 @@ import { Circle, EllipsisVertical, Play } from "lucide-react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { SITE_URLS } from "@/utils/const";
 
 type PlayCardProps = {
   image: StaticImageData;
   title: string;
   status: string;
+  id: string;
 };
 
-export function GameCard({ image, title, status }: PlayCardProps) {
+export function GameCard({ image, title, status, id }: PlayCardProps) {
   return (
     <>
       <Link
-        href="#"
+        href={SITE_URLS.games + `/${id}`}
         className="flex gap-4 p-3 border border-border rounded-xl bg-card shadow-sm transition-all flex-wrap min-w-65"
       >
         <div className="lg:w-26 lg:shrink-0">

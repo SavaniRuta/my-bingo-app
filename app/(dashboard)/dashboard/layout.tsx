@@ -1,9 +1,8 @@
 "use client";
-import type { Metadata } from "next";
 import "@styles/global.css";
-import { Header } from "@/components/dashboard/header/header";
+import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
 import { usePathname } from "next/navigation";
-import { MainHeader } from "@/components/dashboard/header/mainHeader";
+import { Header } from "@/components/global/header/header";
 
 export default function DashboardLayout({
   children,
@@ -12,9 +11,9 @@ export default function DashboardLayout({
 
   return (
     <div className="bg-light-gray h-dvh flex flex-col">
-      <MainHeader />
+      <Header callFrom="dashboard"/>
       <div className="flex-auto overflow-y-auto">
-        <Header pathname={pathName} />
+        <DashboardHeader pathname={pathName} />
         {children}
       </div>
     </div>

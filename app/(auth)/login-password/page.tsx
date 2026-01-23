@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/input-group";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import BccLogo from "@/components/bccLogo";
 
 export default function SingInWithPassword() {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,14 +31,7 @@ export default function SingInWithPassword() {
   return (
     <AuthCard>
       <AuthCardHeader>
-        <Link href={SITE_URLS.home} className="w-max">
-          <Image
-            src="/images/bingo-logo.svg"
-            alt="Bingo Logo Image"
-            width={75}
-            height={40}
-          />
-        </Link>
+        <BccLogo />
         <div>
           <AuthCardTitle className="flex items-center gap-4">
             <Link

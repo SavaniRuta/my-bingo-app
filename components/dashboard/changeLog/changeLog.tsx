@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
+import { SITE_URLS } from "@/utils/const";
 
-type ChangeLogPostProps = {
+type ChangeLogProps = {
   image: StaticImageData;
   title: string;
+  id: string;
 };
 
-export function ChangeLogPost({ image, title }: ChangeLogPostProps) {
+export function ChangeLog({ image, title, id }: ChangeLogProps) {
   return (
     <>
-      {/* Changlog Card */}
-      <Link href="#" title={title}>
+      <Link href={SITE_URLS.changelog + `/${id}`} title={title}>
         <div className="bg-card border border-border rounded-xl p-2.5 pb-4 shadow-sm transition-all">
           <div>
             <Image

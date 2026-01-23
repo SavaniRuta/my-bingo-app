@@ -21,7 +21,9 @@ export const SITE_URLS = {
   register_verify: "/register-verify",
   success: "/success",
 
-  TEMPLATE: "/template",
+  template: "/template",
+
+  empty_dashboard: "dashboard/empty-dashboard",
 
   dashboard: "/dashboard",
   my_cards: "/dashboard/my-cards",
@@ -30,9 +32,9 @@ export const SITE_URLS = {
   appearance: "/dashboard/appearance",
   billing: "/dashboard/billing",
   integrations: "/dashboard/integrations",
-
+  changelog: "/dashboard/changelog",
+  orders: "/dashboard/orders",
 } as const;
-
 
 export function formatSlugToTitle(slug: string) {
   return slug

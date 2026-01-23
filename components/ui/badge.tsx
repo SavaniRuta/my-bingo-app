@@ -14,19 +14,25 @@ const badgeVariants = cva(
         secondary:
           "border-primary-border bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive:
-          "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "border-destructive-border bg-destructive text-destructive-foreground [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         warning:
           "text-warning-foreground border-warning-border bg-warning [a&]:hover:warning [a&]:hover:text-warning-foreground",
         accent:
           "text-accent-foreground border-border bg-accent [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        sucess: 
+        success:
           "text-success-foreground border-success-border bg-success [a&]:hover:bg-success [a&]:hover:text-success-foreground",
+      },
+
+      size: {
+        default: "px-2 py-0.5 text-xs [&>svg]:size-3",
+        lg: "px-3 py-1 text-sm [&>svg]:size-4",
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   }
 )
