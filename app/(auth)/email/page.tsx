@@ -14,7 +14,7 @@ import { SITE_URLS } from "@/utils/const";
 import { ChevronLeft } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/bccLogo";
+import BccLogo from "@/components/global/bccLogo/bccLogo";
 
 export default function RegisterEmailPage() {
   return (

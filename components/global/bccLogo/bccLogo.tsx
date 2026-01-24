@@ -26,6 +26,7 @@ export default function BccLogo({
       alt={alt}
       width={width}
       height={height}
+      className="w-full"
     />
   );
 

@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/input-group";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/bccLogo";
+import BccLogo from "@/components/global/bccLogo/bccLogo";
 
 export default function SingInWithPassword() {
   const [showPassword, setShowPassword] = useState(false);
