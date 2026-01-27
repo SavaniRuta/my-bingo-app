@@ -1,7 +1,5 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { OctagonAlert, Truck } from "lucide-react";
+import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
 import { useParams } from "next/navigation";
 
 export default function OrderDetail() {
@@ -10,12 +8,9 @@ export default function OrderDetail() {
 
   return (
     <>
-      {/* Bottom content */}
-      <div className="py-8">
-        <div className="dashboard-container">
-          <h1>Detail Order page</h1>
-        </div>
-      </div>
+      <DashboardHeader custompathName={orderId}>
+        <h1>Detail Order page</h1>
+      </DashboardHeader>
     </>
   );
 }

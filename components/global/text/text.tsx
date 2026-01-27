@@ -31,6 +31,10 @@ export const textVariants = cva("text-foreground", {
             success: "text-success-foreground",
             card: "text-card-foreground",
             popover: "text-popover-foreground",
+            gray_500: "text-gray-500",
+            gray_600: "text-gray-600",
+            gray_800: "text-gray-800",
+            gray_900: "text-gray-900",
         }
     },
     defaultVariants: {
@@ -40,24 +44,25 @@ export const textVariants = cva("text-foreground", {
     }
 });
 
-type TextProps<T extends React.ElementType = "p"> = {
-    as?: T;
+type TextProps = {
+    as?: React.ElementType;
     children?: React.ReactNode;
-} & VariantProps<typeof textVariants> & React.ComponentPropsWithoutRef<T>;
+} & VariantProps<typeof textVariants> & React.ComponentPropsWithoutRef<"div">;
 
-export const Text = React.forwardRef<
-    HTMLElement,
-    TextProps
->(({ as: Component = "p", className, variant, weight, color, children, ...props }, ref) => {
-    return (
-        <Component
-            ref={ref as any}
-            className={cn(textVariants({ variant, weight, color }), className)}
-            {...props}
-        >
-            {children}
-        </Component>
-    );
-});
+const TextComponent = React.forwardRef<HTMLElement, TextProps>(
+    ({ as: Component = "p", className, variant, weight, color, children, ...props }, ref) => {
+        return (
+            <Component
+                ref={ref as any}
+                className={cn(textVariants({ variant, weight, color }), className)}
+                {...props}
+            >
+                {children}
+            </Component>
+        );
+    }
+);
 
-Text.displayName = "Text";
+TextComponent.displayName = "Text";
+
+export const Text = TextComponent;

@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type CardSliderProps<T> = {
   //   title: string;
@@ -34,17 +35,18 @@ export function CardSlider<T>({
   };
 
   return (
-    <div>
+    <>
       {title && (
-        <div className="dashboard-container flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-3">
           <h3 className="text-xl font-semibold text-foreground">{title}</h3>
 
           <div className="flex items-center gap-2">
             {viewAllHref && (
-              <Link href={viewAllHref}>
-                <Button variant="outline" size="sm">
-                  View all
-                </Button>
+              <Link
+                href={viewAllHref}
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              >
+                View all
               </Link>
             )}
 
@@ -80,6 +82,6 @@ export function CardSlider<T>({
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }

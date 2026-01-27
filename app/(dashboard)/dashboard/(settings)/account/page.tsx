@@ -5,10 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 export default function AccountPage() {
   return (
     <>
-    <div className="max-w-152 w-full">
+      <div className="max-w-152 w-full">
         <div className="pb-5 border-b border-border mb-8">
           <h3 className="text-2xl font-semibold">Account</h3>
-          <p className="text-muted-foreground">Manage your email, name and security.</p>
+          <p className="text-muted-foreground">
+            Manage your email, name and security.
+          </p>
         </div>
         <div className="space-y-5">
           <Card className="p-6 gap-1">
@@ -21,7 +23,9 @@ export default function AccountPage() {
                 </Avatar>
               </div>
               <div className="flex-1">
-                <span className="mb-1.5 text-sm font-normal text-muted-foreground block">Max file size: 3 MB</span>
+                <span className="mb-1.5 text-sm font-normal text-muted-foreground block">
+                  Max file size: 3 MB
+                </span>
                 <div className="flex items-center gap-2">
                   <Button variant="secondary">Upload</Button>
                   <Button variant="outline">Remove</Button>
@@ -65,7 +69,6 @@ export default function AccountPage() {
               </div>
             </div>
           </Card>
-
         </div>
       </div>
     </>
