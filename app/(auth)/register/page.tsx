@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 export default function SignUpPage() {
   return (

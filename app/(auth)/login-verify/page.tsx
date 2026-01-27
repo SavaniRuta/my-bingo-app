@@ -14,7 +14,7 @@ import { ChevronLeft, Send } from "lucide-react";
 import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 export default function VerifyLoginPage() {
   const [seconds, setSeconds] = useState(26);

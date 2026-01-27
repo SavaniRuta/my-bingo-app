@@ -9,7 +9,9 @@ export default function AccountPage() {
     <>
       <div className="space-y-8 max-w-203 w-full">
         <div className="pb-5 border-b border-border">
-          <h3 className="text-foreground text-2xl font-semibold">Billing</h3>
+          <h3 className="text-foreground text-2xl font-semibold">
+            Billing
+          </h3>
           <p className="text-muted-foreground">
             Manage your subscription, payment methods and invoices.
           </p>

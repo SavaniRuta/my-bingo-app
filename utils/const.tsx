@@ -38,8 +38,6 @@ export const SITE_URLS = {
 
 export function formatSlugToTitle(slug: string) {
   return slug
-    .replace(/-/g, " ")
-    .split(" ")
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
+  .replace(/-/g, " ")
+  .replace(/\b\w/g, (c) => c.toUpperCase());
 }

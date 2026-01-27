@@ -11,7 +11,7 @@ import Link from "next/link";
 import { SITE_URLS } from "@/utils/const";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 export default function AccountNotFound() {
   return (

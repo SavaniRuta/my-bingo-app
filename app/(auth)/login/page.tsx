@@ -15,7 +15,7 @@ import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/utils/const";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 export default function LoginPage() {
   return (
@@ -81,9 +81,7 @@ export default function LoginPage() {
             placeholder="john@example.com"
             // className="border-destructive focus-visible:ring-destructive mb-1"
           />
-          <p className="text-[0.8rem] text-destructive-foreground">
-            This email is invalid.
-          </p>
+          <p className="text-[0.8rem] text-destructive-foreground">This email is invalid.</p>
         </div>
 
         <div className="space-y-2">

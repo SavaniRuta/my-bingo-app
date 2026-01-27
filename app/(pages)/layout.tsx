@@ -17,7 +17,7 @@ export default function TemplatesLayout({
     // <main>
       // <div className="max-w-7xl mx-auto px-6">
         <div>
-          <Header />
+          <Header variant="blue" />
           <main>
             {children}
           </main>

@@ -4,7 +4,7 @@ import instagramIcon from "@/public/images/instagram-icon.svg";
 import printerestIcon from "@/public/images/printerest-icon.svg";
 import youTubeIcon from "@/public/images/you-tube-icon.svg";
 import Link from "next/link";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 
 const footerSections = [
@@ -91,7 +91,7 @@ export function Footer() {
             <div className="max-w-7xl mx-auto lg:px-6 px-4"> 
                 <div className="grid grid-footer-column xl:gap-8 justify-between">
                     <div className="space-y-6">
-                        {/* <BccLogo className="w-18.75 h-10"/> */}
+                        <BccLogo/>
                          <p className="mt-4 text-text text-sm">
                             With our easy-to-use software, you can create custom bingo cards with images, text, or emojis ready to play online or in person.
                         </p>

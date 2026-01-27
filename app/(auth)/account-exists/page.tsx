@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/input-group";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/global/bccLogo/bccLogo";
+import BccLogo from "@/components/bccLogo";
 
 export default function AccountExits() {
   const [showPassword, setShowPassword] = useState(false);
