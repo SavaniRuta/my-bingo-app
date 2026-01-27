@@ -15,7 +15,7 @@ import { Lock } from "lucide-react";
 import { SITE_URLS } from "@/utils/const";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/bccLogo";
+import BccLogo from "@/components/global/bccLogo/bccLogo";
 
 export default function LoginPage() {
   return (

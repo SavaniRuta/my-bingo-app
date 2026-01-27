@@ -4,7 +4,7 @@ import instagramIcon from "@/public/images/instagram-icon.svg";
 import printerestIcon from "@/public/images/printerest-icon.svg";
 import youTubeIcon from "@/public/images/you-tube-icon.svg";
 import Link from "next/link";
-import BccLogo from "@/components/bccLogo";
+import BccLogo from "@/components/global/bccLogo/bccLogo";
 
 
 const footerSections = [

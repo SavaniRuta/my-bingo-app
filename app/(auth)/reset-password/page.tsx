@@ -20,7 +20,7 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
-import BccLogo from "@/components/bccLogo";
+import BccLogo from "@/components/global/bccLogo/bccLogo";
 
 export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
