@@ -85,29 +85,51 @@ const footerSections = [
   },
 ];
 
+type SocialLink = {
+  href: string;
+  icon: any;
+  alt: string;
+};
+
+const SOCIAL_LINKS: SocialLink[] = [
+  {
+    href: "#",
+    icon: facebookIcon,
+    alt: "Facebook",
+  },
+  {
+    href: "#",
+    icon: instagramIcon,
+    alt: "Instagram",
+  },
+  {
+    href: "#",
+    icon: youTubeIcon,
+    alt: "YouTube",
+  },
+  {
+    href: "#",
+    icon: printerestIcon,
+    alt: "Pinterest",
+  },
+];
+
 export function Footer() {
     return (
         <footer className="pb-4 pt-7 lg:pb-6 lg:pt-8 bg-white font-inter">
             <div className="max-w-7xl mx-auto lg:px-6 px-4"> 
                 <div className="grid grid-footer-column xl:gap-8 justify-between">
                     <div className="space-y-6">
-                        <BccLogo width={75} height={40}/>
+                        <BccLogo />
                          <Text variant="sm" color="gray_800" className="mt-4">
                             With our easy-to-use software, you can create custom bingo cards with images, text, or emojis ready to play online or in person.
                         </Text>
                         <div className="flex items-center gap-8">
-                            <Link href="#">
-                              <Image src={facebookIcon} alt="Facebook"/>
-                            </Link>
-                            <Link href="#">
-                              <Image src={instagramIcon} alt="Instagram"/>
-                            </Link>
-                            <Link href="#">
-                              <Image src={youTubeIcon} alt="YouTube"/>
-                            </Link>
-                            <Link href="#">
-                              <Image src={printerestIcon} alt="Printerest"/>
-                            </Link>
+                            {SOCIAL_LINKS.map((item) => (
+                              <Link key={item.alt} href={item.href}>
+                                <Image src={item.icon} alt={item.alt} />
+                              </Link>
+                            ))}
                         </div>
                     </div>
 
@@ -120,7 +142,7 @@ export function Footer() {
                                       <li key={title}>
                                         <Link
                                         href={href}
-                                        className="text-gray-600 hover:text-foreground text-sm"
+                                        className="text-gray-600 hover:text-gray-900 text-sm"
                                         >
                                         {title}
                                         </Link>

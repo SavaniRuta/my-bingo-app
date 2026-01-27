@@ -2,7 +2,7 @@
 import { DUMMY_CARDS } from "@/utils/dummy-data";
 import PlayCard from "@/components/dashboard/bingoCard/bingoCard";
 import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
-import { usePathname } from "next/navigation";
+import { SITE_URLS } from "@/utils/const";
 
 export default function MyCards() {
   const itemCount = 8;
@@ -10,11 +10,9 @@ export default function MyCards() {
     ? DUMMY_CARDS.slice(0, itemCount)
     : DUMMY_CARDS;
 
-  const pathName = usePathname();
-
   return (
     <>
-      <DashboardHeader pathName={pathName}>
+      <DashboardHeader pathName={SITE_URLS.my_cards}>
         <div className="space-y-4 lg:space-y-8">
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
             {cardsToRender.map((card) => (

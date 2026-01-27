@@ -8,7 +8,7 @@ export default function OrderDetail() {
 
   return (
     <>
-      <DashboardHeader custompathName={orderId}>
+      <DashboardHeader customTitle={orderId}>
         <h1>Detail Order page</h1>
       </DashboardHeader>
     </>

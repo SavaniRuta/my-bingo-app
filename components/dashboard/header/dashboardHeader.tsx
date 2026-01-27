@@ -1,11 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
-import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
@@ -17,7 +12,6 @@ import {
   ChartLine,
   EllipsisVertical,
   Funnel,
-  Search,
   User,
   CreditCard,
   Blend,
@@ -34,11 +28,12 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ReactNode } from "react";
+import { SearchInput } from "../searchInput/searchInput";
 
 type DashboardHeaderProps = {
   pathName?: string;
   children?: ReactNode;
-  custompathName?: string;
+  customTitle?: string;
 };
 
 const DROPDOWN_ITEMS = [
@@ -103,38 +98,38 @@ const PAGE_CONFIG = [
     title: "Orders",
     description: "View your bingo card delivery order history.",
   },
+  {
+    pathName: SITE_URLS.account,
+    title: "Settings",
+    description: "Manage your account settings.",
+  },
+  {
+    pathName: SITE_URLS.billing,
+    title: "Settings",
+    description: "Manage your account settings.",
+  },
+  {
+    pathName: SITE_URLS.appearance,
+    title: "Settings",
+    description: "Manage your account settings.",
+  },
+  {
+    pathName: SITE_URLS.integrations,
+    title: "Settings",
+    description: "Manage your account settings.",
+  },
 ] as const;
-
-const getPageConfig = (pathName: string) => {
-  return PAGE_CONFIG.find((config) => config.pathName === pathName);
-};
-
-const getSettingsConfig = (pathName: string) => {
-  if (SETTINGS_ROUTES.some((route) => pathName.startsWith(route))) {
-    return {
-      title: "Settings",
-      description: "Manage your account settings.",
-    };
-  }
-  return null;
-};
 
 export function DashboardHeader({
   pathName = "",
-  custompathName,
+  customTitle = "",
   children,
 }: DashboardHeaderProps) {
-  let config = getPageConfig(pathName);
+  const pageConfig = PAGE_CONFIG.find((item) => item.pathName === pathName);
 
-  if (!config) {
-    const settingsConfig = getSettingsConfig(pathName);
-    if (settingsConfig) {
-      config = settingsConfig as any;
-    }
-  }
+  const title = formatSlugToTitle(customTitle || pageConfig?.title || "");
 
-  const title = formatSlugToTitle(config?.title || custompathName || "");
-  const description = config?.description;
+  const description = pageConfig?.description;
 
   return (
     <>
@@ -184,16 +179,9 @@ export function DashboardHeader({
               <div className="hidden lg:flex items-center gap-2">
                 {pathName === SITE_URLS.dashboard && (
                   <>
-                    <InputGroup>
-                      <InputGroupAddon>
-                        <Search className="text-muted-foreground" />
-                      </InputGroupAddon>
-                      <InputGroupInput
-                        type="text"
-                        placeholder="search"
-                        className="border-0 focus-visible:ring-0 shadow-none"
-                      />
-                    </InputGroup>
+                    <SearchInput
+                      placeholder="Search"
+                    />
 
                     <Link
                       href={SITE_URLS.dashboard}
@@ -208,16 +196,9 @@ export function DashboardHeader({
 
                 {pathName === SITE_URLS.my_cards && (
                   <>
-                    <InputGroup>
-                      <InputGroupAddon>
-                        <Search className="text-muted-foreground" />
-                      </InputGroupAddon>
-                      <InputGroupInput
-                        type="text"
-                        placeholder="search"
-                        className="border-0 focus-visible:ring-0 shadow-none"
-                      />
-                    </InputGroup>
+                    <SearchInput
+                      placeholder="Search"
+                    />
 
                     <Button variant="outline" size="icon">
                       <Funnel />
@@ -235,16 +216,9 @@ export function DashboardHeader({
 
                 {pathName === SITE_URLS.games && (
                   <>
-                    <InputGroup>
-                      <InputGroupAddon>
-                        <Search className="text-muted-foreground" />
-                      </InputGroupAddon>
-                      <InputGroupInput
-                        type="text"
-                        placeholder="search"
-                        className="border-0 focus-visible:ring-0 shadow-none"
-                      />
-                    </InputGroup>
+                    <SearchInput
+                      placeholder="Search"
+                    />
 
                     <Link
                       href={SITE_URLS.dashboard}

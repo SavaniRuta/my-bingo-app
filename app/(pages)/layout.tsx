@@ -14,16 +14,12 @@ export default function TemplatesLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <main>
-      // <div className="max-w-7xl mx-auto px-6">
-        <div>
-          <Header />
-          <main>
-            {children}
-          </main>
-          <Footer />
-        </div>
-      // </div>
-    // </main>
+    <>
+      <Header />
+      <main>
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }

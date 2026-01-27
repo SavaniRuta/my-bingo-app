@@ -1,19 +1,30 @@
-"use client";
-import { useParams } from "next/navigation";
+
+import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { formatSlugToTitle } from "@/utils/const";
 import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
+import { CHANGLOG_POSTS } from "@/utils/dummy-data";
 
-export default function Changlog() {
-  const params = useParams();
-  const changlogSlug = params.slug as string;
+type PageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
 
-  const title = formatSlugToTitle(changlogSlug);
+
+export default async function Changlog({ params }: PageProps) {
+  // const params = useParams();
+  // const changlogSlug = params.slug as string;
+  const { slug } = await params;
+  const post = CHANGLOG_POSTS.find((item) => item.id === slug);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <>
-      <DashboardHeader custompathName={title}>
+      <DashboardHeader customTitle={post.title}>
         <div className="grid lg:grid-cols-[170px_1fr] gap-12 w-full lg:max-w-204.5">
           <div className="space-y-3">
             <p className="text-muted-foreground text-xs font-medium">
@@ -34,7 +45,7 @@ export default function Changlog() {
               height={385}
             />
             <div className="py-6 space-y-4">
-              <h3 className="font-semibold">{title}</h3>
+              <h3 className="font-semibold">{post.title}</h3>
               <p>
                 In the latest release, I've added support for commit message and
                 description suggestions via an integration with OpenAI. Commit

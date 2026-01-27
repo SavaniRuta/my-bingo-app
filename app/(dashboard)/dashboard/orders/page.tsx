@@ -1,4 +1,3 @@
-"use client";
 import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { usePathname } from "next/navigation";
+import { SITE_URLS } from "@/utils/const";
 
 const orders = [
   {
@@ -150,10 +149,9 @@ const orders = [
 ];
 
 export default function Orders() {
-  const pathName = usePathname();
   return (
     <>
-      <DashboardHeader pathName={pathName}>
+      <DashboardHeader pathName={SITE_URLS.orders}>
         <div className="max-w-241.25 p-6 rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>

@@ -1,4 +1,3 @@
-"use client";
 import { GameCard } from "@/components/dashboard/gameCard/gameCard";
 import PlayCard from "@/components/dashboard/bingoCard/bingoCard";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { DUMMY_CARDS, DUMMY_GAME_CARDS } from "@/utils/dummy-data";
 import { SITE_URLS } from "@/utils/const";
 import { cn } from "@/lib/utils";
 import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
-import { usePathname } from "next/navigation";
 
 export default function Dashboard() {
   const itemCount = 4;
@@ -21,11 +19,9 @@ export default function Dashboard() {
     ? DUMMY_GAME_CARDS.slice(0, itemGameCount)
     : DUMMY_GAME_CARDS;
 
-  const pathName = usePathname();
-
   return (
     <>
-      <DashboardHeader pathName={pathName}>
+      <DashboardHeader pathName={SITE_URLS.dashboard}>
         <div className="space-y-4 lg:space-y-12">
           <div>
             <div className="flex items-center justify-between mb-4">

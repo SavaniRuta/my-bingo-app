@@ -7,14 +7,12 @@ import { Pencil } from "lucide-react";
 import Image from "next/image";
 import createBingoCard from "@/public/images/create-bingo-card.png";
 import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
-import { usePathname } from "next/navigation";
 import CreateCardButton from "@/components/global/createCardButton/createCardButton";
 
 export default function EmptyDashboard() {
-  const pathName = usePathname();
   return (
     <>
-      <DashboardHeader pathName={pathName}>
+      <DashboardHeader pathName={SITE_URLS.empty_dashboard}>
         <div className="space-y-4 lg:space-y-12">
           <div className="shadow-xs rounded-3xl border border-border bg-card py-8 flex flex-col gap-4 text-center">
             <div>

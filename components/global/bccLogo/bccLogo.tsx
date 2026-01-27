@@ -30,5 +30,5 @@ export default function BccLogo({
     />
   );
 
-  return link ? <Link href={link} className={cn("object-contain w-max", className)}>{Logo}</Link> : Logo;
+  return link ? <Link href={link} className={cn("object-contain w-max block", className)}>{Logo}</Link> : Logo;
 }

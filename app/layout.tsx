@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${recoleta.variable} antialiased`}>
+    <html lang="en" className={`${geist.variable} ${recoleta.variable} ${inter.variable} antialiased`}>
       <body className="antialiased">
         {children}
       </body>

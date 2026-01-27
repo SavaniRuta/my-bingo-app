@@ -23,7 +23,7 @@ export const SITE_URLS = {
 
   template: "/template",
 
-  empty_dashboard: "dashboard/empty-dashboard",
+  empty_dashboard: "/dashboard/empty-dashboard",
 
   dashboard: "/dashboard",
   my_cards: "/dashboard/my-cards",
