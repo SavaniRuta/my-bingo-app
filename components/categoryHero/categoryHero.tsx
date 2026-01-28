@@ -24,7 +24,7 @@ export default function CategoryHero() {
             <Text as="h1" weight="bold" className="title-mark title-large mb-5">1,600+ printable bingo <span>templates</span></Text>
             <Text variant="lg" weight="medium" color="gray_600" className="mb-6">Who says bingo is only for halls? Explore customizable, printable bingo card templates for any occasion—from birthday parties to classroom fun! Ready to play?</Text>
 
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-4 justify-center flex-wrap">
                 <CreateCardButton
                     href={SITE_URLS.template}
                     size="2xl"

@@ -238,7 +238,7 @@
     @apply bg-background text-foreground;
   }
   .title-large {
-    @apply font-recoleta font-bold text-[64px] text-gray-800 leading-[1.15];
+    @apply font-recoleta font-bold text-4xl lg:text-[64px] text-gray-800 leading-[1.15];
   }
 }
 
