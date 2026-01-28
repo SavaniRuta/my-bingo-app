@@ -7,7 +7,7 @@ export default function DashboardLayout({
 
   return (
     <div className="bg-light-gray h-dvh flex flex-col">
-      <Header callFrom="dashboard"/>
+      <Header />
       <div className="flex-auto overflow-y-auto">
         {children}
       </div>

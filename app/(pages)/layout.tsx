@@ -16,7 +16,7 @@ export default function TemplatesLayout({
   return (
     <>
       <Header />
-      <main>
+      <main className="font-inter">
         {children}
       </main>
       <Footer />

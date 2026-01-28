@@ -139,8 +139,8 @@ const ListItem = React.forwardRef<
         className={cn(className)}
         {...props}
       >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+        <div>{title}</div>
+        <p>
           {children}
         </p>
       </a>
@@ -172,10 +172,10 @@ const COMMAND_ITEMS: CommandItemData[] = [
   },
 ];
 
-export function Header({ callFrom = "template", className }: HeaderProps) {
+export function Header({ className }: HeaderProps) {
   const pathname = usePathname();
-  const isDashboard = callFrom === "dashboard";
-  const isTemplate = callFrom === "template";
+  const isDashboard = pathname === SITE_URLS.dashboard;
+  const isTemplate = pathname === SITE_URLS.template;
 
   const [open, setOpen] = React.useState(false);
 
@@ -184,115 +184,112 @@ export function Header({ callFrom = "template", className }: HeaderProps) {
       <header
         className={cn(
           isDashboard
-            ? "px-4 lg:px-8 py-3 sticky top-0 z-50 border-b border-border bg-white"
-            : "w-full bg-white",
+            ? "px-4 lg:px-8 py-3 sticky top-0 z-50 border-b border-border bg-white" : "w-full bg-blue-50",
           className,
         )}
       >
         {isTemplate && (
-          <div className="py-3 lg:py-4 font-inter">
-            <div className="max-w-7xl mx-auto lg:px-6 px-4">
-              <div className="flex justify-between items-center gap-x-6">
-                <BccLogo className="lg:w-26.25 lg:h-14" />
+          <div className="py-2 lg:py-4 font-inter template-container">
+            <div className="flex justify-between items-center gap-x-6">
+              <BccLogo className="lg:w-26.25 lg:h-14" />
 
-                <div className="hidden lg:flex lg:items-center lg:gap-x-6">
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      {NAV_ITEMS.map((item) => (
-                        <NavigationMenuItem key={item.label}>
-                          {item.type === "trigger" ? (
-                            <>
-                              <NavigationMenuTrigger>
-                                {item.label}
-                              </NavigationMenuTrigger>
-                              <NavigationMenuContent>
-                                <ul className="grid w-100 md:w-125 md:grid-cols-1 lg:w-150">
-                                  {item.content?.map((contentItem) => (
-                                    <ListItem
-                                      key={contentItem.title}
-                                      title={contentItem.title}
-                                      href={contentItem.href}
-                                    >
-                                      {contentItem.description}
-                                    </ListItem>
-                                  ))}
-                                </ul>
-                              </NavigationMenuContent>
-                            </>
-                          ) : (
-                            <NavigationMenuLink
-                              asChild
-                              className={navigationMenuTriggerStyle({
-                                className: NAV_ITEM_CLASS,
-                              })}
-                            >
-                              <Link href={item.href!}>{item.label}</Link>
-                            </NavigationMenuLink>
-                          )}
-                        </NavigationMenuItem>
-                      ))}
+              <div className="hidden lg:flex lg:items-center lg:gap-x-6">
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    {NAV_ITEMS.map((item) => (
+                      <NavigationMenuItem key={item.label}>
+                        {item.type === "trigger" ? (
+                          <>
+                            <NavigationMenuTrigger>
+                              {item.label}
+                            </NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                              <ul className="grid w-100 md:w-125 md:grid-cols-1 lg:w-150">
+                                {item.content?.map((contentItem) => (
+                                  <ListItem
+                                    key={contentItem.title}
+                                    title={contentItem.title}
+                                    href={contentItem.href}
+                                  >
+                                    {contentItem.description}
+                                  </ListItem>
+                                ))}
+                              </ul>
+                            </NavigationMenuContent>
+                          </>
+                        ) : (
+                          <NavigationMenuLink
+                            asChild
+                            className={navigationMenuTriggerStyle({
+                              // className: NAV_ITEM_CLASS,
+                            })}
+                          >
+                            <Link href={item.href!}>{item.label}</Link>
+                          </NavigationMenuLink>
+                        )}
+                      </NavigationMenuItem>
+                    ))}
 
-                      <Button
-                        variant="ghost"
-                        className="text-gray-600"
-                        onClick={() => setOpen(true)}
-                      >
-                        <Search />
-                      </Button>
-                      <CommandDialog open={open} onOpenChange={setOpen}>
-                        <Command>
-                          <CommandInput placeholder="Type a command or search..." />
-                          <CommandList>
-                            <CommandEmpty>No results found.</CommandEmpty>
-                            <CommandGroup heading="Settings">
-                              {COMMAND_ITEMS.map((item) => {
-                                const Icon = item.icon;
+                    <Button
+                      variant="ghost"
+                      className="text-gray-600"
+                      onClick={() => setOpen(true)}
+                    >
+                      <Search />
+                    </Button>
+                    <CommandDialog open={open} onOpenChange={setOpen}>
+                      <Command>
+                        <CommandInput placeholder="Type a command or search..." />
+                        <CommandList>
+                          <CommandEmpty>No results found.</CommandEmpty>
+                          <CommandGroup heading="Settings">
+                            {COMMAND_ITEMS.map((item) => {
+                              const Icon = item.icon;
 
-                                return (
-                                  <CommandItem key={item.label}>
-                                    <Icon className="size-4" />
-                                    <span>{item.label}</span>
-                                    <CommandShortcut>
-                                      {item.shortcut}
-                                    </CommandShortcut>
-                                  </CommandItem>
-                                );
-                              })}
-                            </CommandGroup>
-                          </CommandList>
-                        </Command>
-                      </CommandDialog>
-                    </NavigationMenuList>
-                  </NavigationMenu>
+                              return (
+                                <CommandItem key={item.label}>
+                                  <Icon className="size-4" />
+                                  <span>{item.label}</span>
+                                  <CommandShortcut>
+                                    {item.shortcut}
+                                  </CommandShortcut>
+                                </CommandItem>
+                              );
+                            })}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </CommandDialog>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </div>
+
+              <div className="flex items-center lg:gap-6 gap-1">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" width={32} height={32} />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+
+                <div className="hidden lg:block">
+                  <CreateCardButton href={SITE_URLS.dashboard}>
+                    Create Card
+                  </CreateCardButton>
                 </div>
 
-                <div className="flex items-center lg:gap-6 gap-1">
-                  <Avatar className="lg:size-8.5 size-10">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-
-                  <div className="hidden lg:block">
-                    <CreateCardButton href={SITE_URLS.dashboard}>
-                      Create Card
-                    </CreateCardButton>
-                  </div>
-
-                  <Button
-                    variant="ghost"
-                    className="block lg:hidden text-gray-600"
-                    size="lg"
-                  >
-                    <Search />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="block lg:hidden text-gray-600"
-                    size="lg"
-                  >
-                    <TextAlignJustify />
-                  </Button>
-                </div>
+                <Button
+                  variant="ghost"
+                  className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
+                  size="lg"
+                >
+                  <Search />
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
+                  size="lg"
+                >
+                  <TextAlignJustify />
+                </Button>
               </div>
             </div>
           </div>

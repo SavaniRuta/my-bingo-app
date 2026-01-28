@@ -1,81 +1,24 @@
-
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
-import { DashboardHeader } from "@/components/dashboard/header/dashboardHeader";
 import { CHANGLOG_POSTS } from "@/utils/dummy-data";
+import { ChangeLogArticle } from "@/components/dashboard/changeLogArticle/changeLogArticle";
 
 type PageProps = {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 };
 
-
-export default async function Changlog({ params }: PageProps) {
-  // const params = useParams();
-  // const changlogSlug = params.slug as string;
+export default async function Changelog({ params }: PageProps) {
   const { slug } = await params;
-  const post = CHANGLOG_POSTS.find((item) => item.id === slug);
+  const decodedSlug = decodeURIComponent(slug).trim().toLowerCase();
+
+  const post = CHANGLOG_POSTS.find(
+    (item) => item.id.trim().toLowerCase() === decodedSlug,
+  );
 
   if (!post) {
     notFound();
   }
 
-  return (
-    <>
-      <DashboardHeader customTitle={post.title}>
-        <div className="grid lg:grid-cols-[170px_1fr] gap-12 w-full lg:max-w-204.5">
-          <div className="space-y-3">
-            <p className="text-muted-foreground text-xs font-medium">
-              Apr 6, 2023
-            </p>
-            <div className="flex gap-1.5">
-              <Badge variant="secondary">New feature</Badge>
-              <Badge variant="warning">Bug fixes</Badge>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <Image
-              src="/images/sharing-smater-changelog.png"
-              alt="Changlog image"
-              className="rounded-14px"
-              width={600}
-              height={385}
-            />
-            <div className="py-6 space-y-4">
-              <h3 className="font-semibold">{post.title}</h3>
-              <p>
-                In the latest release, I've added support for commit message and
-                description suggestions via an integration with OpenAI. Commit
-                looks at all of your changes, and feeds that into the machine
-                with a bit of prompt-tuning to get back a commit message that
-                does a surprisingly good job at describing the intent of your
-                changes.
-              </p>
-              <ul className="list-disc pl-5">
-                <li>
-                  Added commit message and description suggestions powered by
-                  OpenAI
-                </li>
-                <li>
-                  Fixed race condition that could sometimes leave you in a
-                  broken rebase state
-                </li>
-                <li>
-                  Improved active project detection to try and ignore file
-                  changes triggered by the system instead of the user
-                </li>
-                <li>
-                  Added commit message and description suggestions powered by
-                  OpenAI
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </DashboardHeader>
-    </>
-  );
+  return <ChangeLogArticle post={post} />;
 }

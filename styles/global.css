@@ -77,6 +77,12 @@
   --color-text: var(--text);
   --color-gray: var(--text-gray);
   --color-text-gray-500: var(--text-gray-500);
+
+  --tw-skew-x: 356deg;
+  --tw-skew-y: 0deg;
+  --tw-rotate: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
 }
 
 :root {
@@ -231,6 +237,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .title-large {
+    @apply font-recoleta font-bold text-[64px] text-gray-800 leading-[1.15];
+  }
 }
 
 @layer components {
@@ -245,12 +254,40 @@
     padding-right: 1rem;
     margin: 0 auto;
   }
+  .template-container {
+    max-width: 1280px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .template-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 
   .bg-light-gray{
-    background-color: #f3f4f64d;
+    background-color: #fcfcfc;
   }
   .remove-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .title-mark {
+    span {
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      background-image: linear-gradient(90deg, #42e695 -239.97%, #3bb2b8 216.08%);
+      padding-left: 8px;
+      padding-right: 8px;
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / 1);
+      border-radius: 14px;
+      --tw-skew-x: 356deg;
+      --tw-skew-y: 0deg;
+      display: inline-block;
+    }
   }
 }

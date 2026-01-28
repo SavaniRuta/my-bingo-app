@@ -35,10 +35,11 @@ export const textVariants = cva("text-foreground", {
             gray_600: "text-gray-600",
             gray_800: "text-gray-800",
             gray_900: "text-gray-900",
+            primary_900: "text-indigo-900",
         }
     },
     defaultVariants: {
-        variant: "base",
+        // variant: "base",
         weight: "normal",
         color: "default"
     }
