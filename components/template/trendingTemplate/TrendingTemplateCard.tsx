@@ -31,7 +31,7 @@ export default function TrendingTemplateCard({
           <Text
             as="span"
             variant="sm"
-            color="gray_400"
+            color="gray-400"
             weight="semibold"
             className="block"
           >
@@ -40,13 +40,13 @@ export default function TrendingTemplateCard({
         </div>
 
         <Link href={href} className="lg:mb-2 block">
-          <Text as="h3" variant="lg" color="gray_800" weight="semibold">
+          <Text as="h3" variant="lg" color="gray-800" weight="semibold">
             {title}
           </Text>
         </Link>
         <Text
           variant="base"
-          color="gray_600"
+          color="gray-600"
           className="mb-6 hidden lg:-webkit-inline-box lg:line-clamp-3"
         >
           {description}
@@ -73,15 +73,15 @@ export default function TrendingTemplateCard({
         />
       </div>
 
-        <Link
-          href={SITE_URLS.template}
-          className={cn(
-            buttonVariants({ variant: "outline", size: "lg" }),
-            "text-gray-700 lg:hidden inline-flex absolute bottom-3 inset-x-9",
-          )}
-        >
-          <Pencil /> Edit & print
-        </Link>
+      <Link
+        href={SITE_URLS.template}
+        className={cn(
+          buttonVariants({ variant: "outline", size: "lg" }),
+          "text-gray-700 lg:hidden inline-flex absolute bottom-3 inset-x-9",
+        )}
+      >
+        <Pencil /> Edit & print
+      </Link>
     </div>
   );
 }

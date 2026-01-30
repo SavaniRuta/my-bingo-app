@@ -18,28 +18,26 @@ export default function PopularCatCard({
 }: PopularCatCard) {
   return (
     <div>
-      <div className="rounded-xl mb-3">
-        <Link href={href}>
-          <Image
-            src={image}
-            alt={title}
-            width={284}
-            height={284}
-            className="rounded-xl"
-          />
-        </Link>
-      </div>
+      <Link href={href}>
+        <Image
+          src={image}
+          alt={title}
+          width={284}
+          height={284}
+          className="rounded-xl mb-3"
+        />
+      </Link>
       <div className="flex gap-2 items-center">
         <Avatar className="size-10">
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
-          <Text as="span" variant="sm" color="gray_400" className="block">
+          <Text as="span" variant="sm" color="gray-400" className="block">
             {category}
           </Text>
           <Link href={href} className="font-semibold">
-            <Text as="h4" variant="base" weight="semibold" color="gray_800">
+            <Text as="h4" variant="base" weight="semibold" color="gray-800">
               {title}
             </Text>
           </Link>

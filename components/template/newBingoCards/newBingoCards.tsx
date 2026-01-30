@@ -19,12 +19,12 @@ export default function NewBingoCards() {
             as="h2"
             variant="xl"
             weight="semibold"
-            color="gray_900"
+            color="gray-900"
             className="mb-1.5"
           >
             New bingo cards
           </Text>
-          <Text variant="sm" color="gray_700" className="mb-4">
+          <Text variant="sm" color="gray-700" className="mb-4">
             Explore our most popular bingo cards, perfect for every occasion!
             From parties and team-building to classroom fun and holidays, find
             creative themes that make your events unforgettable.

@@ -23,7 +23,7 @@ export default function CategoryHero() {
             <Text
               variant="sm"
               weight="semibold"
-              color="primary_900"
+              color="primary-900"
               className="mb-4"
             >
               Bingo card templates
@@ -34,7 +34,7 @@ export default function CategoryHero() {
             <Text
               variant="lg"
               weight="medium"
-              color="gray_600"
+              color="gray-600"
               className="mb-6"
             >
               Who says bingo is only for halls? Explore customizable, printable
