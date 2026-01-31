@@ -294,8 +294,10 @@
   .aspect-card {
     aspect-ratio: 843/1113;
   }
-
   .rounded-10 {
     border-radius: 10px;
+  }
+  .rounded-14 {
+    border-radius: 14px;
   }
 }

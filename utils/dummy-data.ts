@@ -1,9 +1,9 @@
-import peopleWatchingCard from '@/public/images/people-watching-card.png';
+import { Type, Image, Sparkles, Smile } from "lucide-react";
 import findSomeoneCard from '@/public/images/find-someone-card.png';
 import thisOrThat from '@/public/images/this-or-that.png';
 import sharingSmaterChangelog from '@/public/images/sharing-smater-changelog.png';
 import onlinePlayRewampChnagelog from '@/public/images/online-play-rewamp-chnagelog.png';
-
+import peopleWatchingCard from '@/public/images/people-watching-card.png';
 
 // My cards data
 export const DUMMY_CARDS = [
@@ -735,5 +735,33 @@ export const FAQ_DATA = [
   {
     question: "How do I use the bingo generator app?",
     answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
+  },
+];
+
+// Add words tabs data
+export const ADD_WORDS_TABS = [
+  {
+    id: "words",
+    label: "Words",
+    // iconType: "type",
+    content: "Enter multiple words on separate lines (Shift + Enter)",
+  },
+  {
+    id: "images",
+    label: "Images",
+    // iconType: "image",
+    content: "Upload images for your bingo card",
+  },
+  {
+    id: "ask-ai",
+    label: "Ask AI",
+    // iconType: "sparkles",
+    content: "Generate content using AI",
+  },
+  {
+    id: "emoji",
+    label: "Emoji",
+    // iconType: "smile",
+    content: "Add emoji to your card",
   },
 ];
