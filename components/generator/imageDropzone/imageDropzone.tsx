@@ -43,11 +43,6 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
 
       <Button
         variant="outline"
-        className={cn(
-          "flex items-center gap-2 rounded-md border border-input bg-background px-4 py-2",
-          "text-sm font-medium text-foreground transition-colors",
-          "hover:bg-accent hover:opacity-80",
-        )}
       >
         <Images />
         Gallery

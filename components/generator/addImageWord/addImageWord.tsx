@@ -1,7 +1,4 @@
 "use client";
-
-import React, { useState } from "react";
-import { Type, Image, Sparkles, Smile } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Text } from "@/components/global/text/text";
 import { Button } from "@/components/ui/button";
@@ -37,9 +34,7 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
         <Text variant="lg" weight="semibold">
           Add words & images
         </Text>
-        <div className="text-sm text-muted-foreground font-medium">
-          <Badge variant="outline">20</Badge>
-        </div>
+        <Badge variant="outline">20</Badge>
       </div>
 
       <Tabs
@@ -48,7 +43,7 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
       >
         <TabsList variant="line" className="border-b">
           {tabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id} className="text-sm">
+            <TabsTrigger key={tab.id} value={tab.id} className="lg:text-sm">
               {/* {iconMap[tab.iconType]} */}
               {tab.label}
             </TabsTrigger>
