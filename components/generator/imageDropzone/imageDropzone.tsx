@@ -97,12 +97,12 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
             )}
           >
             <Button variant="outline">
-              <Replace className="size-4" />
+              <Replace />
               Replace
             </Button>
 
             <Button variant="destructive">
-              <Delete className="size-4" />
+              <Delete />
               Remove
             </Button>
           </div>
