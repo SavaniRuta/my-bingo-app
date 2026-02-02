@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import { POPULAR_CATEGORY_TEMPLATE } from "@/utils/dummy-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import PopularCatCard from "./popularCatCard";
+import PopularCard from "./popularCard";
 import SliderButton from "../sliderButton/sliderButton";
 
 const tabs = [
@@ -14,7 +14,7 @@ const tabs = [
   { name: "History", value: "history" },
 ];
 
-export default function PopularCatTemplate() {
+export default function PopularTemplate() {
   const [activeTab, setActiveTab] = useState(tabs[0].value);
   const sliderRef = useRef<HTMLUListElement>(null);
 
@@ -38,7 +38,6 @@ export default function PopularCatTemplate() {
             <div className="relative overflow-x-auto remove-scroll flex lg:gap-2">
               {tabs.map((tab) => (
                 <TabsTrigger
-                  className="h-full rounded-none border-transparent border-b-2 bg-background data-[state=active]:border-primary data-[state=active]:shadow-none"
                   key={tab.value}
                   value={tab.value}
                 >
@@ -59,7 +58,7 @@ export default function PopularCatTemplate() {
                     key={item.id}
                     className="snap-start shrink-0 w-58 sm:w-80 lg:w-55"
                   >
-                    <PopularCatCard {...item} />
+                    <PopularCard {...item} />
                   </li>
                 ))}
               </ul>

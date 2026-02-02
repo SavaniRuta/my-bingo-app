@@ -5,7 +5,7 @@ import { SITE_URLS } from "@/utils/const";
 import { ArrowRight, StickyNote } from "lucide-react";
 import Link from "next/link";
 import { NEW_BINGO_CARDS } from "@/utils/dummy-data";
-import PopularCatCard from "../popularCatTemplate/popularCatCard";
+import PopularCard from "../PopularTemplateCard/popularCard";
 
 export default function NewBingoCards() {
   return (
@@ -42,7 +42,7 @@ export default function NewBingoCards() {
         </div>
         <div className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-4">
           {NEW_BINGO_CARDS.map((card) => (
-            <PopularCatCard
+            <PopularCard
               key={card.id}
               category={card.category}
               title={card.title}

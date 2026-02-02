@@ -2,28 +2,13 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Text } from "@/components/global/text/text";
 import { Button } from "@/components/ui/button";
-import { ADD_WORDS_TABS } from "@/utils/dummy-data";
+import { ADD_WORDS_TABS, type AddImageWordTab } from "@/utils/dummy-data";
 import { Badge } from "@/components/ui/badge";
 
-// type IconType = "type" | "image" | "sparkles" | "smile";
-
-export interface AddImageWordTab {
-  id: string;
-  label: string;
-  //   iconType: IconType;
-  content: string;
-}
-
+export type { AddImageWordTab };
 interface AddImageWordProps {
   tabs?: readonly AddImageWordTab[];
 }
-
-// const iconMap: Record<IconType, React.ReactNode> = {
-//   type: <Type className="size-4" />,
-//   image: <Image className="size-4" />,
-//   sparkles: <Sparkles className="size-4" />,
-//   smile: <Smile className="size-4" />,
-// };
 
 export const AddImageWord: React.FC<AddImageWordProps> = ({
   tabs = ADD_WORDS_TABS,
@@ -31,7 +16,7 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
   return (
     <div className="space-y-4">
       <div className="flex gap-2 items-center">
-        <Text variant="lg" weight="semibold">
+        <Text variant="base" weight="semibold">
           Add words & images
         </Text>
         <Badge variant="outline">20</Badge>
@@ -39,15 +24,22 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
 
       <Tabs
         defaultValue={tabs[0]?.id}
-        className="w-full border border-border bg-card gap-0 rounded-lg shadow-sm"
+        className="w-full border border-border bg-card rounded-lg shadow-sm"
       >
-        <TabsList variant="line" className="border-b">
-          {tabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id} className="lg:text-sm">
-              {/* {iconMap[tab.iconType]} */}
-              {tab.label}
-            </TabsTrigger>
-          ))}
+        <TabsList className="border-b rounded-none rounded-t-md bg-accent/40">
+          {tabs.map((tab) => {
+            const IconComponent = tab.icon;
+            return (
+              <TabsTrigger
+                key={tab.id}
+                value={tab.id}
+                className="lg:text-sm gap-1.5 lg:px-3"
+              >
+                {IconComponent && <IconComponent className="size-4" />}
+                {tab.label}
+              </TabsTrigger>
+            );
+          })}
         </TabsList>
 
         {tabs.map((tab) => (

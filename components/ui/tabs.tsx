@@ -1,10 +1,9 @@
-"use client"
+"use client";
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-import { cva, type VariantProps } from "class-variance-authority"
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Tabs({
   className,
@@ -18,27 +17,26 @@ function Tabs({
       orientation={orientation}
       className={cn(
         "group/tabs flex gap-2 data-[orientation=horizontal]:flex-col",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 const tabsListVariants = cva(
-  "rounded-lg data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col relative overflow-x-auto remove-scroll flex pr-8 lg:gap-2",
+  "rounded-lg group/tabs-list text-muted-foreground inline-flex w-full items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col relative overflow-x-auto remove-scroll flex justify-start pr-8 lg:gap-2",
   {
     variants: {
       variant: {
-        default: "bg-muted",
-        line: "gap-1 bg-transparent",
+        default: "",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
-)
+  },
+);
 
 function TabsList({
   className,
@@ -53,26 +51,66 @@ function TabsList({
       className={cn(tabsListVariants({ variant }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function TabsTrigger({
   className,
+  variant = "default",
+  size,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
-  return (
+}: React.ComponentProps<typeof TabsPrimitive.Trigger> & {
+  variant?: "default" | "tab-button" | "tab-border";
+  size?: "default" | "medium" | "small";
+}) {
+  const isTabButton = variant === "tab-button";
+  const isTabBorder = variant === "tab-border";
+
+  const baseClasses =
+    "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring relative inline-flex items-center justify-center gap-1.5 whitespace-nowrap transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer rounded-md text-sm disabled:opacity-50 hover:bg-accent";
+
+  const defaultClasses =
+    "text-muted-foreground/70 hover:text-muted-foreground dark:text-muted-foreground dark:hover:text-foreground px-3 lg:px-6 py-2 font-semibold data-[state=active]:text-primary";
+
+  const tabButtonBaseClasses =
+    "border border-border bg-background data-[state=active]:bg-primary-foreground data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-xs";
+
+  const isTabBorderClasses =
+    "py-1.5 px-2 text-foreground data-[state=active]:text-secondary-foreground rounded-sm data-[state=active]:bg-secondary w-full border border-transparent data-[state=active]:border-primary-border data-[state=active]:shadow-xs";
+
+  const sizeClasses = isTabButton
+    ? size === "medium"
+      ? "h-9 px-3"
+      : size === "small"
+        ? "h-8 px-3"
+        : "h-9 px-3"
+    : "";
+
+  const variantClasses = isTabButton
+    ? tabButtonBaseClasses
+    : isTabBorder
+      ? isTabBorderClasses
+      : defaultClasses;
+
+  const trigger = (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
-      className={cn(
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-muted-foreground hover:text-muted-foreground dark:text-muted-foreground dark:hover:text-foreground relative inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border-b border-transparent px-4 lg:px-6 py-3 test-base lg:text-lg font-semibold whitespace-nowrap transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent dark:group-data-[variant=line]/tabs-list:data-[state=active]:border-transparent dark:group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent",
-        "data-[state=active]:bg-background dark:data-[state=active]:text-primary dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 data-[state=active]:text-primary",
-        "after:bg-primary after:absolute after:opacity-0 after:transition-opacity group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:bottom-0 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-[state=active]:after:opacity-100 cursor-pointer",
-        className
-      )}
+      data-variant={variant}
+      data-size={size}
+      className={cn(baseClasses, variantClasses, sizeClasses, className)}
       {...props}
     />
-  )
+  );
+
+  if (isTabButton || isTabBorder) {
+    return trigger;
+  }
+
+  return (
+    <div className="py-1.5 border-transparent border-b-2 has-data-[state=active]:border-primary">
+      {trigger}
+    </div>
+  );
 }
 
 function TabsContent({
@@ -85,7 +123,7 @@ function TabsContent({
       className={cn("flex-1 outline-none", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants }
+export { Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants };

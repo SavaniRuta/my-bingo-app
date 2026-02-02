@@ -3,19 +3,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Link from "next/link";
 
-type PopularCatCard = {
+type PopularCard = {
   category: string;
   title: string;
   image: string;
   href: string;
 };
 
-export default function PopularCatCard({
+export default function PopularCard({
   category,
   title,
   image,
   href,
-}: PopularCatCard) {
+}: PopularCard) {
   return (
     <div>
       <Link href={href}>
