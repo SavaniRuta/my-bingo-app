@@ -34,6 +34,10 @@ export const SITE_URLS = {
   integrations: "/dashboard/integrations",
   changelog: "/dashboard/changelog",
   orders: "/dashboard/orders",
+
+  generator: "/generator",
+
+
 } as const;
 
 export function formatSlugToTitle(slug: string) {

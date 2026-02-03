@@ -1,17 +1,23 @@
-import { Type, Image, Sparkles, Smile } from "lucide-react";
+import { Type, Image, Sparkles, Smile, Settings, Replace } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import findSomeoneCard from '@/public/images/find-someone-card.png';
 import thisOrThat from '@/public/images/this-or-that.png';
 import sharingSmaterChangelog from '@/public/images/sharing-smater-changelog.png';
 import onlinePlayRewampChnagelog from '@/public/images/online-play-rewamp-chnagelog.png';
 import peopleWatchingCard from '@/public/images/people-watching-card.png';
-import { Description } from "@radix-ui/react-dialog";
 
 export interface AddImageWordTab {
   id: string;
   label: string;
   content: string;
   icon?: LucideIcon;
+}
+
+export interface FaqIconItem {
+  icon?: LucideIcon;
+  question: string;
+  description?: string;
+  answer: string;
 }
 
 // My cards data
@@ -748,38 +754,30 @@ export const FAQ_DATA = [
 ];
 
 // FAQ Data
-export const FAQ_DATA_ICON = [
+export const FAQ_DATA_ICON: readonly FaqIconItem[] = [
   {
-    icon: "",
+    icon: Settings,
     description: "Speed up card creation by starting from our curated designs",
     question: "Can I fully customize my bingo card?",
-    answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
+    answer:
+      "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable...",
   },
   {
-    icon: "",
+    icon: Replace,
     description: "Speed up card creation by starting from our curated designs",
     question: "Can I save my card as an image?",
-    answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
+    answer:
+      "Yes! You can make your bingo card as unique as you like...",
   },
   {
-    icon: "",
+    icon: Settings,
     description: "Test",
     question: "Is the card creator free to use?",
-    answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
-  },
-  {
-    icon: "",
-    description: "Speed up card creation by starting from our curated designs",
-    question: "Is upgrading and downgrading my account easy?",
-    answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
-  },
-  {
-    icon: "",
-    description: "Speed up card creation by starting from our curated designs",
-    question: "How do I use the bingo generator app?",
-    answer: "Yes! You can make your bingo card as unique as you like. Each bingo card is fully customizable, from selecting custom texts and images to changing the font type and color, background image and color, and much more."
+    answer:
+      "Yes! You can make your bingo card as unique as you like...",
   },
 ];
+
 
 
 // Add words tabs data

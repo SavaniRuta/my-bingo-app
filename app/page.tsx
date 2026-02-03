@@ -256,23 +256,19 @@ export default function Home() {
 
         <div className="space-y-3">
           <Accordion
-            className="my-4 space-y-3 flex-1"
+            className="my-4 space-y-6 flex-1"
             collapsible
             type="single"
           >
-            {FAQ_DATA_ICON.map(({ question, answer, icon, description }, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-              >
+            {FAQ_DATA_ICON.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger
-                  variant="icon"
-                  icon={<HelpCircle className="size-4" />}
-                  description={description}
-                  title={question}
-                  />
-                  {/* {question} */}
-                <AccordionContent className="">{answer}</AccordionContent>
+                  variant="minimal"
+                  icon={item.icon}
+                  title={item.question}
+                  description={item.description}
+                />
+                <AccordionContent>{item.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
