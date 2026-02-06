@@ -1,4 +1,3 @@
-import { Footer } from "@/components/global/footer/footer";
 import { Header } from "@/components/global/header/header";
 import React from "react";
 
@@ -14,9 +13,9 @@ export default function GeneratorLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="flex flex-col h-dvh bg-generator overflow-hidden bg-[url('/images/generator-bg.svg')] bg-cover">
       <Header />
       {children}
-    </>
+    </div>
   );
 }

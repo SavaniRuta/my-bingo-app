@@ -39,7 +39,7 @@ export const CardTitle: React.FC<CardTitleProps> = ({
   return (
     <>
       <div className="flex justify-between items-center mb-1.5">
-        <Text variant="sm" weight="medium">
+        <Text variant="base" weight="semibold">
           Title
         </Text>
 

@@ -175,9 +175,6 @@ const COMMAND_ITEMS: CommandItemData[] = [
 export function Header({ className, callFrom }: HeaderProps) {
   const pathname = usePathname();
 
-  // const isDashboard = pathname === SITE_URLS.dashboard;
-  // const isTemplate = pathname === SITE_URLS.template;
-
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -188,193 +185,171 @@ export function Header({ className, callFrom }: HeaderProps) {
           className,
         )}>
 
-        <div className={cn("flex items-center flex-1 justify-between lg:justify-normal gap-x-4 lg:gap-x-8", callFrom === "marketing" && "template-container" )}>
-          <BccLogo className="hidden lg:flex" />
+        <div className={cn("flex items-center flex-1 justify-between gap-x-4 lg:gap-x-8", callFrom === "marketing" && "template-container" )}>
+          <BccLogo className="flex" />
 
-          {/* <div className="flex items-center gap-x-4 lg:gap-x-5">
-            <BccLogo className="flex lg:hidden w-17" />
+            {callFrom === "marketing" ? (
+              <>
+                <div className="hidden lg:flex lg:items-center lg:gap-x-6">
+                  <NavigationMenu>
+                    <NavigationMenuList>
+                      {NAV_ITEMS.map((item) => (
+                        <NavigationMenuItem key={item.label}>
+                          {item.type === "trigger" ? (
+                            <>
+                              <NavigationMenuTrigger>
+                                {item.label}
+                              </NavigationMenuTrigger>
+                              <NavigationMenuContent>
+                                <ul className="grid w-100 md:w-125 md:grid-cols-1 lg:w-150">
+                                  {item.content?.map((contentItem) => (
+                                    <ListItem
+                                      key={contentItem.title}
+                                      title={contentItem.title}
+                                      href={contentItem.href}
+                                    >
+                                      {contentItem.description}
+                                    </ListItem>
+                                  ))}
+                                </ul>
+                              </NavigationMenuContent>
+                            </>
+                          ) : (
+                            <NavigationMenuLink
+                              asChild
+                              className={navigationMenuTriggerStyle({
+                                // className: NAV_ITEM_CLASS,
+                              })}
+                            >
+                              <Link href={item.href!}>{item.label}</Link>
+                            </NavigationMenuLink>
+                          )}
+                        </NavigationMenuItem>
+                      ))}
 
-            <Separator
-              orientation="vertical"
-              className="block data-[orientation=vertical]:h-5.5 lg:hidden"
-            />
-
-            <CreateCardButton
-              href={SITE_URLS.dashboard}
-              variant="secondary"
-              size="sm"
-              className="lg:hidden flex"
-            >
-              Create Card
-            </CreateCardButton>
-          </div> */}
-
-          <div className="flex items-center gap-x-2 lg:gap-x-3 lg:ml-auto">
-            <div className="hidden lg:flex items-center">
-              {DASHBOARD_NAV_ITEMS.map((item) => {
-                const isActive = pathname === item.href;
-
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "sm" }),
-                      isActive ? "text-foreground" : "text-muted-foreground",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </div>
-
-            <Separator
-              orientation="vertical"
-              className="hidden data-[orientation=vertical]:h-5.5 lg:block"
-            />
-
-            <div className="shrink-0 flex items-center gap-2 lg:gap-3">
-              <div className="flex">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-muted-foreground"
-                >
-                  <Gauge />
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-muted-foreground relative"
-                >
-                  <BellIcon className="relative" />
-                  <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
-                </Button>
-              </div>
-
-              <CreateCardButton
-                href={SITE_URLS.dashboard}
-                variant="secondary"
-                className="hidden lg:flex"
-              >
-                Create Card
-              </CreateCardButton>
-
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-        </div>
-
-
-        {callFrom === "marketing" && (
-          <>
-          <div className="hidden lg:flex lg:items-center lg:gap-x-6">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {NAV_ITEMS.map((item) => (
-                  <NavigationMenuItem key={item.label}>
-                    {item.type === "trigger" ? (
-                      <>
-                        <NavigationMenuTrigger>
-                          {item.label}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid w-100 md:w-125 md:grid-cols-1 lg:w-150">
-                            {item.content?.map((contentItem) => (
-                              <ListItem
-                                key={contentItem.title}
-                                title={contentItem.title}
-                                href={contentItem.href}
-                              >
-                                {contentItem.description}
-                              </ListItem>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <NavigationMenuLink
-                        asChild
-                        className={navigationMenuTriggerStyle({
-                          // className: NAV_ITEM_CLASS,
-                        })}
+                      <Button
+                        variant="ghost"
+                        className="text-gray-600"
+                        onClick={() => setOpen(true)}
                       >
-                        <Link href={item.href!}>{item.label}</Link>
-                      </NavigationMenuLink>
-                    )}
-                  </NavigationMenuItem>
-                ))}
+                        <Search />
+                      </Button>
+                      <CommandDialog open={open} onOpenChange={setOpen}>
+                        <Command>
+                          <CommandInput placeholder="Type a command or search..." />
+                          <CommandList>
+                            <CommandEmpty>No results found.</CommandEmpty>
+                            <CommandGroup heading="Settings">
+                              {COMMAND_ITEMS.map((item) => {
+                                const Icon = item.icon;
 
-                <Button
-                  variant="ghost"
-                  className="text-gray-600"
-                  onClick={() => setOpen(true)}
-                >
-                  <Search />
-                </Button>
-                <CommandDialog open={open} onOpenChange={setOpen}>
-                  <Command>
-                    <CommandInput placeholder="Type a command or search..." />
-                    <CommandList>
-                      <CommandEmpty>No results found.</CommandEmpty>
-                      <CommandGroup heading="Settings">
-                        {COMMAND_ITEMS.map((item) => {
-                          const Icon = item.icon;
+                                return (
+                                  <CommandItem key={item.label}>
+                                    <Icon className="size-4" />
+                                    <span>{item.label}</span>
+                                    <CommandShortcut>
+                                      {item.shortcut}
+                                    </CommandShortcut>
+                                  </CommandItem>
+                                );
+                              })}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </CommandDialog>
+                    </NavigationMenuList>
+                  </NavigationMenu>
+                </div>
 
-                          return (
-                            <CommandItem key={item.label}>
-                              <Icon className="size-4" />
-                              <span>{item.label}</span>
-                              <CommandShortcut>
-                                {item.shortcut}
-                              </CommandShortcut>
-                            </CommandItem>
-                          );
-                        })}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </CommandDialog>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
+                <div className="flex items-center lg:gap-6 gap-1">
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" width={32} height={32} />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
 
-          <div className="flex items-center lg:gap-6 gap-1">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" width={32} height={32} />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+                  <div className="hidden lg:block">
+                    <CreateCardButton href={SITE_URLS.dashboard}>
+                      Create Card
+                    </CreateCardButton>
+                  </div>
 
-            <div className="hidden lg:block">
-              <CreateCardButton href={SITE_URLS.dashboard}>
-                Create Card
-              </CreateCardButton>
-            </div>
+                  <Button
+                    variant="ghost"
+                    className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
+                    size="lg"
+                  >
+                    <Search />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
+                    size="lg"
+                  >
+                    <TextAlignJustify />
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center gap-x-2 lg:gap-x-3">
+                <div className="hidden lg:flex items-center">
+                  {DASHBOARD_NAV_ITEMS.map((item) => {
+                    const isActive = pathname === item.href;
 
-            <Button
-              variant="ghost"
-              className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
-              size="lg"
-            >
-              <Search />
-            </Button>
-            <Button
-              variant="ghost"
-              className="block lg:hidden text-gray-600 [&_svg:not([class*='size-'])]:size-6 has-[>svg]:px-2"
-              size="lg"
-            >
-              <TextAlignJustify />
-            </Button>
-          </div>
-          </>
-        )}
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "sm" }),
+                          isActive ? "text-foreground" : "text-muted-foreground",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <Separator
+                  orientation="vertical"
+                  className="hidden data-[orientation=vertical]:h-5.5 lg:block"
+                />
+
+                <div className="shrink-0 flex items-center gap-2 lg:gap-3">
+                  <div className="flex">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-muted-foreground"
+                    >
+                      <Gauge />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="text-muted-foreground relative"
+                    >
+                      <BellIcon className="relative" />
+                      <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
+                    </Button>
+                  </div>
+
+                  <CreateCardButton
+                    href={SITE_URLS.dashboard}
+                    variant="secondary"
+                    className="hidden lg:flex"
+                  >
+                    Create Card
+                  </CreateCardButton>
+
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </div>
+              </div>
+            )}
+        </div>
       </header>
-
-      
-
     </>
   );
 }

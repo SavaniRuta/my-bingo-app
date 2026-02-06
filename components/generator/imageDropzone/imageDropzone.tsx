@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Delete, ImagePlus, Images, Replace } from "lucide-react";
 import { Text } from "@/components/global/text/text";
 import { cn } from "@/lib/utils";
@@ -25,26 +25,35 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
 }) => {
   const isVertical = orientation === "vertical";
   const isPrimary = variant === "primary";
-  const isUploaded = uploaded === true;
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    console.log("Selected file:", file);
+  };
 
   return (
-    <div
+    <label
       className={cn(
         "group relative rounded-10 border-2 border-dashed transition-all cursor-pointer hover:opacity-80",
-
         isVertical
           ? "flex flex-col items-center text-center gap-4 p-6"
           : "flex items-center gap-5 p-6 flex-wrap sm:flex-nowrap sm:justify-start justify-center",
-
         isPrimary
           ? "bg-primary-foreground border-primary/40 text-primary"
           : "bg-accent border-border",
-
-        isUploaded ? "border-none p-0" : "",
-
+        uploaded && "border-none p-0",
         className,
       )}
     >
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        className="absolute inset-0 z-10 cursor-pointer opacity-0"
+      />
+
       {!uploaded && (
         <>
           <div
@@ -62,6 +71,7 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
                 variant="sm"
                 weight="semibold"
                 color={isPrimary ? "primary" : "card"}
+                className="mb-1.5"
               >
                 {title}
               </Text>
@@ -74,7 +84,7 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
             )}
           </div>
 
-          <Button variant="outline">
+          <Button variant="outline" tabIndex={-1}>
             <Images />
             Gallery
           </Button>
@@ -91,11 +101,7 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
             height={300}
           />
 
-          <div
-            className={cn(
-              "flex items-center justify-center gap-3 hover:opacity-100 absolute opacity-0 inset-0 hover:bg-white/70 transition-all ease-in-out",
-            )}
-          >
+          <div className="absolute inset-0 flex items-center justify-center gap-3 bg-white/70 opacity-0 group-hover:opacity-100 transition-all z-20">
             <Button variant="outline">
               <Replace />
               Replace
@@ -108,6 +114,6 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
           </div>
         </div>
       )}
-    </div>
+    </label>
   );
 };
