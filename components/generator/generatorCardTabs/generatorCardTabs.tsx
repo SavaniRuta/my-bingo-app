@@ -3,21 +3,19 @@ import { FileSearch, FileStack, Palette, Settings } from "lucide-react";
 import GeneratorCardSetup from "../generatorCardSetup/generatorCardSetup";
 import { ComponentType } from "react";
 
-
-
 type TabConfig = {
   name: string;
   id: string;
   icon?: React.ElementType;
   component?: ComponentType;
-}
+};
 
 const tabs: TabConfig[] = [
   {
     name: "Setup",
     id: "card-setup",
     icon: Settings,
-    component: GeneratorCardSetup
+    component: GeneratorCardSetup,
   },
   {
     name: "Design",

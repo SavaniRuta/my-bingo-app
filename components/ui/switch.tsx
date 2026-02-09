@@ -42,7 +42,8 @@ function Switch({
     "group/switch-item flex cursor-pointer transition-colors rounded-10",
     "gap-3",
 
-    isBox && "border border-border p-3 has-[button[data-state=checked]]:border-primary has-[button[data-state=checked]]:bg-primary/5 shadow-xs",
+    isBox &&
+      "border border-border p-3 has-[button[data-state=checked]]:border-primary has-[button[data-state=checked]]:bg-primary/5 shadow-xs",
 
     isExpanding && "border border-border p-4 rounded-12 shadow-xs flex-col",
 
@@ -57,8 +58,8 @@ function Switch({
   );
 
   const iconClasses = cn(
-    "flex items-center justify-center text-muted-foreground shrink-0",
-    "group-has-[button[data-state=checked]]/switch-item:text-foreground",
+    "flex items-center justify-center text-primary shrink-0",
+    // "group-has-[button[data-state=checked]]/switch-item:text-foreground",
   );
 
   const switchClasses = cn(
@@ -92,7 +93,7 @@ function Switch({
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"
         className={cn(
-          "bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block rounded-full ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0",
+          "bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block rounded-full ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0 cursor-pointer",
         )}
       />
     </SwitchPrimitive.Root>
@@ -106,16 +107,14 @@ function Switch({
     return (
       <div className={containerClasses}>
         <div className={contentWrapperClasses}>
-          <div className="flex items-start gap-3 flex-1">
-            {showIcon && <div className={iconClasses}>{icon}</div>}
+          <div className="flex-1 flex flex-col gap-1">
+            <div className="flex items-start gap-2">
+              {showIcon && <div className={iconClasses}>{icon}</div>}
+              {showLabel && <span className={labelClasses}>{label}</span>}
+            </div>
 
-            {(showLabel || showDescription) && (
-              <div className="flex flex-col gap-1">
-                {showLabel && <span className={labelClasses}>{label}</span>}
-                {showDescription && (
-                  <span className={descriptionClasses}>{description}</span>
-                )}
-              </div>
+            {showDescription && (
+              <span className={descriptionClasses}>{description}</span>
             )}
           </div>
 

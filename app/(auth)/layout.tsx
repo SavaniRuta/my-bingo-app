@@ -17,11 +17,11 @@ export default function RootLayout({
         <div className="flex flex-1 flex-col justify-center w-1/2 overflow-y-auto">
           <div className="w-full max-w-90 mx-auto">{children}</div>
         </div>
-        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14px border border-primary-border">
+        <div className="relative hidden flex-auto lg:flex lg:items-center z-0 overflow-hidden justify-end bg-blue-50 rounded-14 border border-primary-border">
           <Image
             src={cardsImage}
             alt="Image"
-            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale rounded-14px"
+            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
           />
         </div>
       </div>

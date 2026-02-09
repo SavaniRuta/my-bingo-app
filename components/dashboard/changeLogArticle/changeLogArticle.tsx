@@ -34,7 +34,7 @@ export function ChangeLogArticle({ post }: ChangeLogArticleProps) {
             <Image
               src={post.image}
               alt="Changlog image"
-              className="rounded-14px"
+              className="rounded-14"
               width={600}
               height={385}
             />

@@ -7,6 +7,11 @@ import { Eye, Image, Type } from "lucide-react";
 import { ImageDropzone } from "../imageDropzone/imageDropzone";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 
 type CardTitleType = "text" | "image";
 
@@ -37,7 +42,7 @@ export const CardTitle: React.FC<CardTitleProps> = ({
   };
 
   return (
-    <>
+    <div>
       <div className="flex justify-between items-center mb-1.5">
         <Text variant="base" weight="semibold">
           Title
@@ -80,7 +85,10 @@ export const CardTitle: React.FC<CardTitleProps> = ({
         </div>
       </div>
 
-      <Input type="text" placeholder="Enter card title" className="mb-4" />
+      <InputGroup className="mb-4">
+        <InputGroupInput placeholder="Enter card title" />
+        <InputGroupAddon align="inline-end">12/100</InputGroupAddon>
+      </InputGroup>
 
       {type === "image" && (
         <ImageDropzone
@@ -88,6 +96,6 @@ export const CardTitle: React.FC<CardTitleProps> = ({
           description="Upload a JPG, PNG, or WebP (400x400px, max 5MB)"
         />
       )}
-    </>
+    </div>
   );
 };
