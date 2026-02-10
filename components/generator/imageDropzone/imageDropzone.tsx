@@ -5,7 +5,7 @@ import { Text } from "@/components/global/text/text";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { GalleryDailog } from "../galleryDailog/galleryDailog";
+import { GalleryDialog } from "../galleryDialog/galleryDialog";
 
 interface ImageDropzoneProps {
   title?: string;
@@ -138,7 +138,7 @@ export const ImageDropzone: React.FC<ImageDropzoneProps> = ({
       </label>
 
       {showGallery && (
-        <GalleryDailog open={openGallery} onOpenChange={setOpenGallery} />
+        <GalleryDialog open={openGallery} onOpenChange={setOpenGallery} />
       )}
     </>
   );

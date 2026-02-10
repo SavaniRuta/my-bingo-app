@@ -48,7 +48,7 @@ interface GalleryDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function GalleryDailog({ open, onOpenChange }: GalleryDialogProps) {
+export function GalleryDialog({ open, onOpenChange }: GalleryDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="p-0 max-w-137.5 w-full max-h-118.75 h-full">
