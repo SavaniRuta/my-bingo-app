@@ -1,0 +1,116 @@
+"use client";
+import { Text } from "@/components/global/text/text";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  EllipsisVertical,
+  MessageCircleQuestionMark,
+  RotateCw,
+  Shuffle,
+  Upload,
+} from "lucide-react";
+import CardPreviewImage from "@/public/images/card-preview-image.png";
+import Image from "next/image";
+import CardShareModal from "../cardShareModal/cardShareModal";
+import { useState } from "react";
+
+export default function CardPreview() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+
+  return (
+    <>
+      <div className="sticky z-10 top-0 border-b border-border h-14 flex justify-between items-center py-3 px-5 mt-0.5 xl:px-8 bg-white lg:bg-transparent">
+        <div className="flex items-center">
+          <div className="flex gap-4 items-center">
+            <Button variant="ghost" size="icon-xs">
+              <ChevronLeft className="text-muted-foreground/70 size-4" />
+            </Button>
+            <Button variant="ghost" size="icon-xs">
+              <ChevronRight className="text-muted-foreground/70 size-4" />
+            </Button>
+          </div>
+          <Separator
+            orientation="vertical"
+            className="data-[orientation=vertical]:h-4 bg-border mx-4"
+          />
+          <div className="flex gap-1.5 items-center">
+            <Check className="text-muted-foreground/70 size-4" />
+            <Text as="span" variant="xs" className="text-muted-foreground/70">
+              Saved
+            </Text>
+          </div>
+        </div>
+
+        <div className="hidden gap-1.5 lg:flex">
+          <Button variant="ghost">
+            <Shuffle />
+            Shuffle
+          </Button>
+          <Button variant="ghost">
+            <RotateCw />
+            Start again
+          </Button>
+          <Button variant="ghost">
+            <MessageCircleQuestionMark />
+            How it works
+          </Button>
+          {/* <Button variant="outline">
+            <Upload />
+            Share
+          </Button> */}
+          <CardShareModal
+            open={isShareModalOpen}
+            onOpenChange={setIsShareModalOpen}
+          />
+        </div>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon-sm" className="flex lg:hidden">
+              <EllipsisVertical />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="min-w-48">
+            <DropdownMenuItem>
+              <Shuffle />
+              Shuffle
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <RotateCw />
+              Start again
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <MessageCircleQuestionMark />
+              How it works
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setIsShareModalOpen(true)}>
+              <Upload />
+              Share
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      <div className="grow overflow-y-auto">
+        <div className="min-h-0 p-8 h-full relative flex grow items-center justify-center">
+          <div className="w-full h-full relative">
+            <Image
+              src={CardPreviewImage}
+              alt="Card Preview"
+              className="object-contain w-full h-full"
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

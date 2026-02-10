@@ -1,3 +1,4 @@
+import CardPreview from "@/components/generator/cardPreview/cardPreview";
 import GeneratorCardTabs from "@/components/generator/generatorCardTabs/generatorCardTabs";
 import { Button } from "@/components/ui/button";
 import { Globe, Printer } from "lucide-react";
@@ -21,7 +22,7 @@ export default function Generater() {
       </div>
 
       <div className="flex-1 hidden flex-col my-3 relative lg:flex">
-        Right pannel
+        <CardPreview />
       </div>
     </div>
   );

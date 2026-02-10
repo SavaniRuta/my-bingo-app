@@ -1,6 +1,7 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FileSearch, FileStack, Palette, Settings } from "lucide-react";
 import GeneratorCardSetup from "../generatorCardSetup/generatorCardSetup";
+import CardPreview from "../cardPreview/cardPreview";
 import { ComponentType } from "react";
 
 type TabConfig = {
@@ -8,6 +9,7 @@ type TabConfig = {
   id: string;
   icon?: React.ElementType;
   component?: ComponentType;
+  mobileOnly?: boolean;
 };
 
 const tabs: TabConfig[] = [
@@ -31,6 +33,8 @@ const tabs: TabConfig[] = [
     name: "Preview",
     id: "card-preview",
     icon: FileSearch,
+    component: CardPreview,
+    mobileOnly: true,
   },
 ];
 
@@ -40,20 +44,24 @@ export default function GeneratorCardTabs() {
       defaultValue={tabs[0].id}
       className="h-full relative flex flex-col flex-auto overflow-hidden gap-0"
     >
-      <TabsList className="border-b rounded-none rounded-t-md justify-end lg:gap-0">
+      <TabsList className="border-b rounded-none rounded-t-md justify-start lg:justify-end lg:gap-0">
         {tabs.map((tab) => {
           const IconComponent = tab.icon;
 
           return (
-            <TabsTrigger
+            <div
               key={tab.id}
-              value={tab.id}
-              size="small"
-              className="flex items-center gap-2 lg:px-3"
+              className={`lg:w-auto w-1/3 ${tab.mobileOnly ? "lg:hidden" : ""}`}
             >
-              {IconComponent && <IconComponent />}
-              {tab.name}
-            </TabsTrigger>
+              <TabsTrigger
+                value={tab.id}
+                size="small"
+                className="flex items-center gap-2 lg:px-3 mx-auto py-3"
+              >
+                {IconComponent && <IconComponent />}
+                {tab.name}
+              </TabsTrigger>
+            </div>
           );
         })}
       </TabsList>
@@ -63,7 +71,11 @@ export default function GeneratorCardTabs() {
           const TabComponent = tab.component;
 
           return (
-            <TabsContent key={tab.id} value={tab.id} className="p-7">
+            <TabsContent
+              key={tab.id}
+              value={tab.id}
+              className={tab.mobileOnly ? "lg:hidden" : "p-7"}
+            >
               {TabComponent ? (
                 <TabComponent />
               ) : (
