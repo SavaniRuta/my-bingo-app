@@ -50,7 +50,7 @@ export function SetupCardType() {
       </Text>
       <div className="overflow-x-auto remove-scroll mt-4">
         <RadioGroup defaultValue="custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="flex gap-3">
             {cardTypeRadios.map((item) => {
               return (
                 <RadioGroupItem
@@ -59,7 +59,7 @@ export function SetupCardType() {
                   value={item.value}
                   label={item.label}
                   icon={item.icon}
-                  className="font-semibold"
+                  className="font-semibold w-full"
                 />
               );
             })}

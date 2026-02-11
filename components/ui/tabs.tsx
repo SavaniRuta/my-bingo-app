@@ -25,7 +25,7 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "rounded-lg group/tabs-list text-muted-foreground inline-flex w-full items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col relative overflow-x-auto remove-scroll flex justify-start pr-8 lg:gap-2",
+  "group/tabs-list text-muted-foreground inline-flex w-full items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col relative overflow-x-auto remove-scroll flex justify-start pr-8 lg:gap-2",
   {
     variants: {
       variant: {
@@ -67,7 +67,7 @@ function TabsTrigger({
   const isTabBorder = variant === "tab-border";
 
   const baseClasses =
-    "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring relative inline-flex items-center justify-center gap-1.5 whitespace-nowrap transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer rounded-md text-sm disabled:opacity-50 hover:bg-accent";
+    "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring relative inline-flex items-center justify-center gap-1.5 whitespace-nowrap transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer rounded-10 text-sm disabled:opacity-50 hover:bg-accent";
 
   const defaultClasses =
     "text-muted-foreground/70 hover:text-muted-foreground dark:text-muted-foreground dark:hover:text-foreground px-3 lg:px-6 py-2 font-semibold data-[state=active]:text-primary";

@@ -21,10 +21,12 @@ import {
 import CardPreviewImage from "@/public/images/card-preview-image.png";
 import Image from "next/image";
 import CardShareModal from "../cardShareModal/cardShareModal";
+import HowToPlayGameSidebar from "../howToPlayGameSidebar/howToPlayGameSidebar";
 import { useState } from "react";
 
 export default function CardPreview() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isHowToPlaySidebarOpen, setIsHowToPlaySidebarOpen] = useState(false);
 
   return (
     <>
@@ -59,17 +61,21 @@ export default function CardPreview() {
             <RotateCw />
             Start again
           </Button>
-          <Button variant="ghost">
+          <Button
+            variant="ghost"
+            type="button"
+            onClick={() => setIsHowToPlaySidebarOpen(true)}
+          >
             <MessageCircleQuestionMark />
             How it works
           </Button>
-          {/* <Button variant="outline">
-            <Upload />
-            Share
-          </Button> */}
           <CardShareModal
             open={isShareModalOpen}
             onOpenChange={setIsShareModalOpen}
+          />
+          <HowToPlayGameSidebar
+            open={isHowToPlaySidebarOpen}
+            onOpenChange={setIsHowToPlaySidebarOpen}
           />
         </div>
 
@@ -88,7 +94,7 @@ export default function CardPreview() {
               <RotateCw />
               Start again
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setIsHowToPlaySidebarOpen(true)}>
               <MessageCircleQuestionMark />
               How it works
             </DropdownMenuItem>

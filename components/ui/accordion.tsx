@@ -3,10 +3,8 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Text } from "../global/text/text";
-import type { LucideIcon } from "lucide-react";
 
 function Accordion({
   ...props
@@ -24,18 +22,18 @@ function AccordionItem({
       className={cn(
         "border-b last:border-b-0 has-[button[data-variant=boxed]]:border rounded-10",
         "has-[button[data-variant=boxed]]:p-4 has-[button[data-variant=boxed]]:flex has-[button[data-variant=boxed]]:flex-col has-[button[data-variant=boxed]]:gap-5",
-        "has-[button[data-variant=minimal]]:border-none has-[button[data-variant=minimal]]:p-0 has-[button[data-variant=minimal]]:flex has-[button[data-variant=minimal]]:flex-col has-[button[data-variant=minimal]]:gap-5",
+        "has-[button[data-variant=minimal]]:flex has-[button[data-variant=minimal]]:flex-col has-[button[data-variant=minimal]]:gap-5",
         className,
       )}
       {...props}
     />
   );
 }
-
+ 
 type AccordionTriggerProps =
   React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
     variant?: "default" | "boxed" | "minimal";
-    icon?: React.ElementType;
+    icon?: React.ElementType | React.ReactElement;
     title?: string;
     description?: string;
 };
@@ -51,6 +49,20 @@ function AccordionTrigger({
 }: AccordionTriggerProps) {
   const isBoxedVariant = variant === "boxed";
   const isMinimalVariant = variant === "minimal";
+  const renderedIcon = (() => {
+    if (!Icon) return null;
+
+    if (React.isValidElement<{ className?: string }>(Icon)) {
+      const existingClassName = Icon.props.className ?? "";
+      return React.cloneElement(Icon, {
+        className: cn("text-primary size-4 shrink-0", existingClassName),
+      });
+    }
+
+    return React.createElement(Icon as React.ElementType, {
+      className: "text-primary size-4 shrink-0",
+    });
+  })();
 
   return (
     <AccordionPrimitive.Header className="flex">
@@ -67,7 +79,7 @@ function AccordionTrigger({
         {isBoxedVariant || isMinimalVariant ? (
           <div className="flex flex-col items-start gap-0.5">
             <div className="flex gap-2 items-center">
-              {Icon && <Icon className="text-primary" />}
+              {renderedIcon}
               {title && (
                 <Text as="span" variant="base" color="card" weight="semibold">
                   {title}
@@ -84,8 +96,8 @@ function AccordionTrigger({
           children
         )}
 
-        <ChevronDownIcon className={cn("text-muted-foreground pointer-events-none  shrink-0 translate-y-0.5 transition-transform duration-200",
-          isBoxedVariant || isMinimalVariant ? "size-6" : "size-4"
+        <ChevronDownIcon className={cn("text-muted-foreground pointer-events-none shrink-0 translate-y-0.5 transition-transform duration-200 size-4",
+          // isBoxedVariant || isMinimalVariant ? "size-6" : "size-4"
         )} />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

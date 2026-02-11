@@ -3,6 +3,8 @@ import { FileSearch, FileStack, Palette, Settings } from "lucide-react";
 import GeneratorCardSetup from "../generatorCardSetup/generatorCardSetup";
 import CardPreview from "../cardPreview/cardPreview";
 import { ComponentType } from "react";
+import GeneratorCardDesign from "../generatorCardDesign/generatorCardDesign";
+import CardTemplates from "../cardTemplates/cardTemplates";
 
 type TabConfig = {
   name: string;
@@ -23,11 +25,13 @@ const tabs: TabConfig[] = [
     name: "Design",
     id: "card-advance-style",
     icon: Palette,
+    component: GeneratorCardDesign,
   },
   {
     name: "Templates",
     id: "card-templates",
     icon: FileStack,
+    component: CardTemplates,
   },
   {
     name: "Preview",
@@ -74,7 +78,7 @@ export default function GeneratorCardTabs() {
             <TabsContent
               key={tab.id}
               value={tab.id}
-              className={tab.mobileOnly ? "lg:hidden" : "p-7"}
+              className={tab.mobileOnly ? "lg:hidden h-full flex flex-col" : "p-7"}
             >
               {TabComponent ? (
                 <TabComponent />

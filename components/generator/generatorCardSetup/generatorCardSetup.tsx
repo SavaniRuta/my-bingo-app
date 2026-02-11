@@ -14,7 +14,7 @@ export default function GeneratorCardSetup() {
       <SetupCardType />
 
       <div className="flex items-center justify-between gap-2 xs:gap-7 flex-wrap">
-        <div className="lg:flex-1">
+        <div className="xl:flex-1">
           <Text variant="base" weight="semibold" className="flex gap-2">
             Add words & images
             <Badge variant="outline">15 items</Badge>
