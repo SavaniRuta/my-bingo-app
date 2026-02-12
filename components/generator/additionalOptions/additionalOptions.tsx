@@ -2,7 +2,7 @@ import { Text } from "@/components/global/text/text";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import { Shuffle, Star, StickyNote } from "lucide-react";
+import { Shuffle, Star } from "lucide-react";
 import { ImageDropzone } from "../imageDropzone/imageDropzone";
 import ColumnHeaderIcon from "@/public/images/coulmn-header-icon.svg";
 import ColumnFooterIcon from "@/public/images/column-footer-icon.svg";
@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export function AdditionalOptions() {
   return (
-    <div>
+    <>
       <Text variant="base" weight="semibold" className="mb-0.5">
         Additional Options
       </Text>
@@ -55,7 +55,9 @@ export function AdditionalOptions() {
             />
           }
         >
-          <p>Include column headers</p>
+          <Text as="p" variant="sm" color="muted">
+            Include column headers
+          </Text>
         </Switch>
 
         <Switch
@@ -71,7 +73,9 @@ export function AdditionalOptions() {
             />
           }
         >
-          <p>Include footer text</p>
+          <Text as="p" variant="sm" color="muted">
+            Include footer text
+          </Text>
         </Switch>
 
         <Switch
@@ -80,9 +84,11 @@ export function AdditionalOptions() {
           variant="expanding"
           icon={<Shuffle className="size-5" />}
         >
-          <p>Randomization method</p>
+          <Text as="p" variant="sm" color="muted">
+            Randomization method
+          </Text>
         </Switch>
       </div>
-    </div>
+    </>
   );
 }

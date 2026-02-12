@@ -6,7 +6,7 @@ import { Globe, Printer } from "lucide-react";
 export default function Generater() {
   return (
     <div className="flex flex-auto min-h-0">
-      <div className="lg:border lg:border-border lg:rounded-lg lg:w-112.5 xl:w-137.5 2xl:w-150 relative bg-card shadow-sm overflow-hidden flex flex-col w-full min-h-0 lg:my-3 lg:ml-3">
+      <div className="lg:border lg:border-border lg:rounded-lg lg:w-112.5 xl:w-137 2xl:w-150 relative bg-card shadow-sm overflow-hidden flex flex-col w-full min-h-0 lg:my-3 lg:ml-3">
         <GeneratorCardTabs />
 
         <div className="bg-card flex items-center gap-3 flex-none px-7 py-3 border-t border-border w-full">

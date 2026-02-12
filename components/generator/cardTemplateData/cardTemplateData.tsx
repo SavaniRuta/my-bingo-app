@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -200,7 +201,7 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
 
   return (
     <>
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center mb-6">
         <Button
           type="button"
           variant="outline"
@@ -208,13 +209,14 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
           onClick={() => scrollByAmount("left")}
           disabled={!canScrollLeft}
           aria-label="Scroll categories left"
+          className={cn(!canScrollLeft && "mr-1.5")}
         >
           <ChevronLeft className="size-4" />
         </Button>
 
         <div
           ref={scrollContainerRef}
-          className="flex-1 overflow-x-auto snap-x snap-mandatory remove-scroll"
+          className="overflow-x-auto snap-x snap-mandatory remove-scroll"
         >
           <div className="flex items-center gap-2">
             {selectedTemplateData.categories.map((category) => (
@@ -223,11 +225,12 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
                 type="button"
                 variant="outline"
                 size="sm"
-                className={`snap-start text-muted-foreground ${
+                className={cn(
+                  "snap-start border-border",
                   "isActive" in category && category.isActive
-                    ? "border-border bg-primary/10 text-primary"
-                    : "border-border bg-background text-muted-foreground hover:bg-accent"
-                }`}
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground",
+                )}
               >
                 {category.label}
               </Button>
@@ -242,6 +245,7 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
           onClick={() => scrollByAmount("right")}
           disabled={!canScrollRight}
           aria-label="Scroll categories right"
+          className={cn(!canScrollRight && "ml-1.5")}
         >
           <ChevronRight className="size-4" />
         </Button>

@@ -48,10 +48,10 @@ export default function CardTemplates() {
                 variant="tab-border"
                 value={tabItem.value}
                 size="small"
-                className="font-medium"
+                className="font-medium py-1"
               >
-                {tabItem.icon}
-                {tabItem.label}
+                {tabItem?.icon}
+                {tabItem?.label}
               </TabsTrigger>
             ))}
           </TabsList>

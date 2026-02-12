@@ -15,6 +15,7 @@ import {
   EllipsisVertical,
   MessageCircleQuestionMark,
   RotateCw,
+  Share,
   Shuffle,
   Upload,
 } from "lucide-react";
@@ -61,22 +62,23 @@ export default function CardPreview() {
             <RotateCw />
             Start again
           </Button>
-          <Button
-            variant="ghost"
-            type="button"
-            onClick={() => setIsHowToPlaySidebarOpen(true)}
-          >
-            <MessageCircleQuestionMark />
-            How it works
-          </Button>
-          <CardShareModal
-            open={isShareModalOpen}
-            onOpenChange={setIsShareModalOpen}
-          />
+
           <HowToPlayGameSidebar
             open={isHowToPlaySidebarOpen}
             onOpenChange={setIsHowToPlaySidebarOpen}
-          />
+          >
+            <Button variant="ghost" type="button">
+              <MessageCircleQuestionMark />
+              How it works
+            </Button>
+          </HowToPlayGameSidebar>
+
+          <CardShareModal open={isShareModalOpen}>
+            <Button type="button" variant="outline">
+              <Share />
+              Share
+            </Button>
+          </CardShareModal>
         </div>
 
         <DropdownMenu>
@@ -106,13 +108,13 @@ export default function CardPreview() {
         </DropdownMenu>
       </div>
 
-      <div className="grow overflow-y-auto">
-        <div className="min-h-0 p-8 h-full relative flex grow items-center justify-center">
-          <div className="w-full h-full relative">
+      <div className="overflow-y-auto">
+        <div className="min-h-0 p-8 h-full relative flex items-center justify-center">
+          <div className="size-full relative">
             <Image
               src={CardPreviewImage}
               alt="Card Preview"
-              className="object-contain w-full h-full"
+              className="object-contain size-full"
             />
           </div>
         </div>

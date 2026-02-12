@@ -28,14 +28,13 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
       >
         <TabsList className="border-b rounded-none rounded-t-md bg-accent/40">
           {tabs.map((tab) => {
-            const IconComponent = tab.icon;
             return (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
                 className="lg:text-sm gap-1.5 lg:px-3"
               >
-                {IconComponent && <IconComponent className="size-4" />}
+                {tab?.icon && <tab.icon className="size-4" />}
                 {tab.label}
               </TabsTrigger>
             );

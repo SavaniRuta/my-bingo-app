@@ -76,7 +76,7 @@ export default function GeneratorCardDesign() {
                 alt="Wavey template"
                 width={136}
                 height={117}
-                className="block h-29.25 w-34 object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                className="block h-29 w-34 object-cover object-top transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </div>
@@ -94,14 +94,13 @@ export default function GeneratorCardDesign() {
         </div>
       </div>
 
-      <Accordion type="single" collapsible className="">
+      <Accordion type="single" collapsible>
         {DESIGN_ACCORDION_ITEMS.map((item) => {
-          const Component = item.component;
 
           return (
             <AccordionItem
-              key={item.id}
-              value={item.id}
+              key={item?.id}
+              value={item?.id}
               className="py-6 flex-1 border-b border-border first:pt-0 last:border-b rounded-none"
             >
               <AccordionTrigger
@@ -112,7 +111,7 @@ export default function GeneratorCardDesign() {
                 className="p-0"
               />
               <AccordionContent className="p-0">
-                {Component ? <Component /> : "Test content"}
+                {item?.component ? <item.component /> : "Test content"}
               </AccordionContent>
             </AccordionItem>
           );

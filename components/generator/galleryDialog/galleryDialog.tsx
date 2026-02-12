@@ -60,8 +60,6 @@ export function GalleryDialog({ open, onOpenChange }: GalleryDialogProps) {
           >
             <TabsList className="border-b rounded-none rounded-t-md lg:gap-0 px-6">
               {tabs.map((tab) => {
-                const IconComponent = tab.icon;
-
                 return (
                   <TabsTrigger
                     key={tab.id}
@@ -69,8 +67,8 @@ export function GalleryDialog({ open, onOpenChange }: GalleryDialogProps) {
                     size="small"
                     className="flex items-center gap-2 lg:px-3"
                   >
-                    {IconComponent && <IconComponent />}
-                    {tab.name}
+                    {tab?.icon && <tab.icon />}
+                    {tab?.name}
                   </TabsTrigger>
                 );
               })}

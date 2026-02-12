@@ -17,6 +17,7 @@ import { Text } from "@/components/global/text/text";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const shareModalTabs = [
   {
@@ -44,8 +45,7 @@ export default function ShareModalContent({ isMobile }: { isMobile: boolean }) {
           <Title>Share your bingo card</Title>
           <Separator orientation="vertical" className="h-5 bg-border" />
           <div className="flex gap-2 items-center text-sm font-medium">
-            <span className="text-foreground">Public</span>
-
+            <Text as="span" color="muted">Public</Text>
             <Switch
               checked={isPublic}
               onCheckedChange={setIsPublic}
@@ -59,9 +59,9 @@ export default function ShareModalContent({ isMobile }: { isMobile: boolean }) {
         </Description>
       </Header>
       <Tabs defaultValue={shareModalTabs[0].id}>
-        <TabsList className="grid w-full grid-cols-2 text-center">
+        <TabsList className="grid w-full grid-cols-2 text-center p-0 lg:gap-0 border-b rounded-none rounded-t-md">
           {shareModalTabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id} className="text-base">
+            <TabsTrigger key={tab.id} value={tab.id} className={cn("text-base")}>
               <tab.icon />
               {tab.name}
             </TabsTrigger>
@@ -70,15 +70,16 @@ export default function ShareModalContent({ isMobile }: { isMobile: boolean }) {
 
         <TabsContent
           value="share-link"
-          className={`mt-7 transition-opacity ${
-            isPublic ? "opacity-100" : "opacity-50"
-          }`}
+          className={cn(
+            "mt-7 transition-opacity",
+            isPublic ? "opacity-100" : "opacity-50",
+          )}
         >
           <Text variant="sm" weight="medium" className="mb-2">
             Share as a template
           </Text>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-            <Button variant="outline" size="lg" className="">
+            <Button variant="outline" size="lg">
               <Image
                 src="/images/facebook-icon-blue.svg"
                 alt="Facebook"
@@ -87,7 +88,7 @@ export default function ShareModalContent({ isMobile }: { isMobile: boolean }) {
               />
               Share on Facebook
             </Button>
-            <Button variant="outline" size="lg" className="">
+            <Button variant="outline" size="lg">
               <Image
                 src="/images/pintrest-icon-red.svg"
                 alt="Pinterest"

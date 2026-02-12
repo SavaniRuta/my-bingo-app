@@ -39,6 +39,7 @@ type RadioGroupItemProps = React.ComponentProps<
   weight?: Weight;
   variant?: Variant;
   icon?: React.ReactNode;
+  customIcon?: boolean;
   image?: string | StaticImageData;
 };
 
@@ -50,6 +51,7 @@ function RadioGroupItem({
   variant = "default",
   icon,
   image,
+  customIcon,
   ...props
 }: RadioGroupItemProps) {
   const variants = {

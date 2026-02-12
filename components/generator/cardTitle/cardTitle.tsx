@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Input } from "@/components/ui/input";
 import { Text } from "@/components/global/text/text";
 import { Eye, Image, Type } from "lucide-react";
 import { ImageDropzone } from "../imageDropzone/imageDropzone";

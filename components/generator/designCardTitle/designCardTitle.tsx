@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import { AlignCenter, AlignLeft, AlignRight, Bold } from "lucide-react";
 
 const FONT_WEIGHT_OPTIONS = [
@@ -48,7 +49,7 @@ export default function DesignCardTitle() {
           </Text>
           <RadioGroup
             defaultValue="regular"
-            className="flex p-1 border border-border rounded-lg gap-0"
+            className="flex h-10 p-1 border border-border rounded-lg gap-0"
           >
             {FONT_WEIGHT_OPTIONS.map((item) => (
               <RadioGroupItem
@@ -56,7 +57,7 @@ export default function DesignCardTitle() {
                 id={item.id}
                 value={item.value}
                 variant="icon"
-                className="h-8 px-1.5 py-1 w-full justify-center"
+                className={cn("px-1.5 py-1 w-full justify-center")}
                 icon={
                   <Bold className="size-6" strokeWidth={item.strokeWidth} />
                 }
@@ -71,7 +72,10 @@ export default function DesignCardTitle() {
           <Text as="p" variant="sm" weight="semibold">
             Text color
           </Text>
-          <div className="border rounded-lg border-border p-2 flex items-center gap-2"><div className="bg-black w-5.5 h-5.5 rounded"></div>#5E2A2A</div>
+          <div className="border rounded-lg border-border p-2 flex items-center gap-2">
+            <div className="bg-black size-5.5 rounded border border-black"></div>
+            #5E2A2A
+          </div>
         </div>
         <div className="w-full flex flex-col gap-2">
           <Text as="p" variant="sm" weight="semibold">
@@ -79,7 +83,7 @@ export default function DesignCardTitle() {
           </Text>
           <RadioGroup
             defaultValue="regular"
-            className="flex p-1 border border-border rounded-lg gap-0"
+            className="flex h-10 p-1 border border-border rounded-lg gap-0"
           >
             {TITLE_ALIGNMENT_OPTIONS.map((item) => (
               <RadioGroupItem
@@ -87,7 +91,7 @@ export default function DesignCardTitle() {
                 id={item.id}
                 value={item.value}
                 variant="icon"
-                className="h-8 px-1.5 py-1 w-full justify-center"
+                className={cn("px-1.5 py-1 w-full justify-center")}
                 icon={item.icon}
               />
             ))}

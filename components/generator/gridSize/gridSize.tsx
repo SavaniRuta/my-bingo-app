@@ -66,11 +66,11 @@ export function GridSize() {
             {cardTypeRadios.map((item) => {
               return (
                 <RadioGroupItem
-                  key={item.id}
+                  key={item?.id}
                   variant="fancy-group"
-                  value={item.value}
-                  label={item.label}
-                  icon={item.icon}
+                  value={item?.value}
+                  label={item?.label}
+                  icon={item?.icon}
                   className="font-semibold"
                 />
               );
