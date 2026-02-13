@@ -15,10 +15,8 @@ export default function TemplatesLayout({
 }) {
   return (
     <>
-      <Header callFrom="marketing"/>
-      <main className="font-inter">
-        {children}
-      </main>
+      <Header callFrom="marketing" />
+      <main className="font-inter">{children}</main>
       <Footer />
     </>
   );

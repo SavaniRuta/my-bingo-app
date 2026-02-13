@@ -39,6 +39,7 @@ export const textVariants = cva("text-foreground", {
             "gray-800": "text-gray-800",
             "gray-900": "text-gray-900",
             "primary-900": "text-indigo-900",
+            "title": "text-title",
         }
     },
     defaultVariants: {

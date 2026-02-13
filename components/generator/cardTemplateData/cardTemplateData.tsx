@@ -200,8 +200,8 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
   }, [tabItem.value]);
 
   return (
-    <>
-      <div className="flex items-center mb-6">
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="mb-6 flex items-center">
         <Button
           type="button"
           variant="outline"
@@ -251,22 +251,24 @@ export default function CardTemplateData({ tabItem }: CardTemplateDataProps) {
         </Button>
       </div>
 
-      <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3">
-        {selectedTemplateData.images.map((image) => (
-          <div
-            key={image.id}
-            className="rounded-14 overflow-hidden cursor-pointer hover:opacity-80 transition"
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={284}
-              height={284}
-              className="object-cover w-full h-auto"
-            />
-          </div>
-        ))}
+      <div className="min-h-0 overflow-y-auto pr-1">
+        <div className="grid grid-cols-2 gap-4 pb-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3">
+          {selectedTemplateData.images.map((image) => (
+            <div
+              key={image.id}
+              className="rounded-14 overflow-hidden cursor-pointer hover:opacity-80 transition"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={284}
+                height={284}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

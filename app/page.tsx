@@ -8,15 +8,27 @@ import { ADD_WORDS_TABS, FAQ_DATA_ICON } from "@/utils/dummy-data";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ImageDropzone } from "@/components/generator/imageDropzone/imageDropzone";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CircleIcon, HelpCircle } from "lucide-react";
+import { CircleIcon, AppleIcon, BananaIcon, CherryIcon, GrapeIcon, CitrusIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import React from "react";
+
+const fruits = [
+  { value: "apple", label: "Apple", icon: AppleIcon },
+  { value: "banana", label: "Banana", icon: BananaIcon },
+  { value: "cherry", label: "Cherry", icon: CherryIcon },
+  { value: "grapes", label: "Grapes", icon: GrapeIcon },
+  { value: "citrus", label: "Citrus", icon: CitrusIcon },
+];
 
 export default function Home() {
+
+  const [value, setValue] = React.useState("apple");
   return (
     <>
       <div className="mx-auto container">
@@ -273,6 +285,28 @@ export default function Home() {
             ))}
           </Accordion>
         </div>
+
+
+
+        <Select onValueChange={setValue} value={value}>
+          <SelectTrigger className="w-[180px]">
+            <div className="flex items-center gap-2 [&_svg]:h-4 [&_svg]:w-4">
+              <SelectValue placeholder="Select a fruit" />
+            </div>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              {fruits.map((fruit) => (
+                <SelectItem key={fruit.value} value={fruit.value}>
+                  <div className="flex items-center gap-2">
+                    <fruit.icon className="h-4 w-4" /> {fruit.label}
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </>
   );

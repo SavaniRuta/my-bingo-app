@@ -1,17 +1,22 @@
+"use client";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FileSearch, FileStack, Palette, Settings } from "lucide-react";
 import GeneratorCardSetup from "../generatorCardSetup/generatorCardSetup";
 import CardPreview from "../cardPreview/cardPreview";
-import { ComponentType } from "react";
+import { ComponentType, useState } from "react";
 import GeneratorCardDesign from "../generatorCardDesign/generatorCardDesign";
 import CardTemplates from "../cardTemplates/cardTemplates";
 import { cn } from "@/lib/utils";
+
+type GeneratorTabComponentProps = {
+  onActiveTabChange?: (tabId: string) => void;
+};
 
 type TabConfig = {
   name: string;
   id: string;
   icon?: React.ElementType;
-  component?: ComponentType;
+  component?: ComponentType<GeneratorTabComponentProps>;
   mobileOnly?: boolean;
 };
 
@@ -44,9 +49,12 @@ const tabs: TabConfig[] = [
 ];
 
 export default function GeneratorCardTabs() {
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? "");
+
   return (
     <Tabs
-      defaultValue={tabs[0]?.id}
+      value={activeTab}
+      onValueChange={setActiveTab}
       className="h-full relative flex flex-col flex-auto overflow-hidden gap-0"
     >
       <TabsList className="border-b rounded-none rounded-t-md justify-start lg:justify-end lg:gap-0">
@@ -72,18 +80,20 @@ export default function GeneratorCardTabs() {
         })}
       </TabsList>
 
-      <div className="flex-1 overflow-auto">
+      <div className="min-h-0 flex-1 overflow-hidden">
         {tabs.map((tab) => {
           return (
             <TabsContent
               key={tab.id}
               value={tab.id}
               className={cn(
-                tab.mobileOnly ? "lg:hidden h-full flex flex-col" : "p-7",
+                tab.mobileOnly
+                  ? "flex h-full min-h-0 flex-col lg:hidden"
+                  : "h-full min-h-0 overflow-y-auto p-7",
               )}
             >
               {tab?.component ? (
-                <tab.component />
+                <tab.component onActiveTabChange={setActiveTab} />
               ) : (
                 <div className="text-sm text-muted-foreground">
                   {tab?.name} Tab content

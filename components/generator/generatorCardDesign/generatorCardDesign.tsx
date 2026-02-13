@@ -20,6 +20,10 @@ type DesignAccordionItem = {
   component?: ElementType;
 };
 
+type GeneratorCardDesignProps = {
+  onActiveTabChange?: (tabId: string) => void;
+};
+
 const DESIGN_ACCORDION_ITEMS: readonly DesignAccordionItem[] = [
   {
     id: "card-title",
@@ -61,16 +65,18 @@ const DESIGN_ACCORDION_ITEMS: readonly DesignAccordionItem[] = [
   },
 ] as const;
 
-export default function GeneratorCardDesign() {
+export default function GeneratorCardDesign({
+  onActiveTabChange,
+}: GeneratorCardDesignProps) {
   return (
     <div className="space-y-9">
       <Text as="p" variant="sm" className="mb-2" weight="medium">
         Choose a template
       </Text>
       <div className="px-3 pt-3 relative rounded-xl bg-accent/30 border border-border overflow-hidden sm:pt-4 sm:px-6">
-        <div className="relative z-10 flex flex-1 flex-col gap-3 sm:gap-6 xl:flex-row">
+        <div className="relative z-10 flex flex-col gap-3 sm:gap-6 xl:flex-row">
           <div className="flex shrink-0 items-end">
-            <div className="group overflow-hidden ring-1 rounded-t-lg ring-white transition-all hover:ring-2 z-10">
+            <div className="overflow-hidden ring-1 rounded-t-lg ring-white transition-all hover:ring-2 z-10">
               <Image
                 src="/images/meet-greet-card.png"
                 alt="Wavey template"
@@ -89,7 +95,13 @@ export default function GeneratorCardDesign() {
                 Use a template to create amazing cards quickly.
               </Text>
             </div>
-            <Button variant="outline">Open</Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => onActiveTabChange?.("card-templates")}
+            >
+              Open
+            </Button>
           </div>
         </div>
       </div>

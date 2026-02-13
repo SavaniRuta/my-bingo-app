@@ -43,9 +43,9 @@ export const AddImageWord: React.FC<AddImageWordProps> = ({
 
         {tabs.map((tab) => (
           <TabsContent key={tab.id} value={tab.id}>
-            <div className="p-4">{tab.label}</div>
+            <div className="p-4 h-52 overflow-y-auto">{tab.label}</div>
 
-            <div className="flex items-center justify-between py-2 px-4 border-t">
+            <div className="flex items-center justify-between py-2 px-4 border-t flex-wrap gap-2">
               <Text variant="sm" color="muted">
                 0 words
               </Text>
