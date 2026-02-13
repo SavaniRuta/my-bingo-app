@@ -29,6 +29,12 @@ const breadcrumbItems = [
   },
 ];
 
+const templateGalleryImages = [
+  "/images/test-template-card.jpg.webp",
+  "/images/test-template-card.jpg.webp",
+  "/images/test-template-card.jpg.webp",
+];
+
 export default function TemplatePage() {
   return (
     <>
@@ -54,7 +60,7 @@ export default function TemplatePage() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
           <div className="w-full lg:w-1/2">
             <div className="lg:sticky lg:top-24">
-              <TemplateGallery />
+              <TemplateGallery images={templateGalleryImages}/>
             </div>
           </div>
           <div className="w-full lg:w-1/2">
