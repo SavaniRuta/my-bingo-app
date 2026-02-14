@@ -303,4 +303,12 @@
   .rounded-20 {
     border-radius: 20px;
   }
+
+  .gallery-overlay {
+    background: rgba(0, 0, 0, 0.92) !important;
+  }
+  
+  .gallery-overlay.backdrop-blur {
+    backdrop-filter: blur(16px) !important;
+  }
 }
